@@ -121,7 +121,11 @@ cat crushftp_all.log | grep 'SERVER_LOGIN:FAIL' | grep ':HTTP' | awk -F':' '{pri
   
 This the result:
   
-TABLEAU
+| Username   | Requests |
+|------------|----------|
+| X          | 6        |
+| anonymous  | 4        |
+| a274abc8e2 | 2        |
   
 Verdict
 
@@ -193,7 +197,9 @@ cat crushftp_all.log | grep 'SERVER_LOGIN:SUCCESS' |  awk -F':' '{print $7}' | s
   
 This the result:
   
-TABLEAU
+| Username   | Requests |
+|------------|----------|
+| crushadmin | 37       |
   
 Verdict
 
