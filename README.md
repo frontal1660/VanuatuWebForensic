@@ -199,6 +199,7 @@ The following command can be used to get some kind of banned IP list:
 ```
 bash# cat crushftp_all.log | grep DENIAL | awk '{print $6}' | awk -F':' '{print $2}' | sort | uniq -c | sort -nr
 ```
+<br/>
   
 Voici le résultat final :
   
@@ -238,8 +239,10 @@ Voici le résultat final :
 | 107.173.213.30   | 36       | 47.236.97.125     | 4        | 115.141.226.179   | 1        |
 | 61.7.145.116     | 34       | 185.42.12.242     | 4        | 105.101.222.200   | 1        |
 | 212.83.189.230   | 34       | 163.44.118.104    | 4        | 102.152.176.5     | 1        |
+<br/>
   
 One IP is out of the box : 51.79.192.93.
+<br/>
   
 Verdict
 
@@ -278,8 +281,10 @@ Let's use Maxmind to get intel for the head of the stack:
 | 114.143.74.50   | Pune, Maharashtra, India (IN), Asia                         | Tata Teleservices Maharashtra                           |
 | 203.6.231.136   | China (CN), Asia                                            | Cloud Computing Corporation                             |
 | 211.115.190.135 | Seogwipo, Jeju-do, South Korea (KR), Asia                   | KT                                                      |
+<br/>
   
 China litteraly pops out!
+<br/>
   
 Verdict
 
@@ -294,6 +299,7 @@ It's time to extrat the unsuccessfull HTTP login attempts :
 ```
 cat crushftp_all.log | grep 'SERVER_LOGIN:FAIL' | grep ':HTTP' | awk -F':' '{print $7}' | sort | uniq -c | sort -nr
 ```
+<br/>
   
 This the result:
   
@@ -302,6 +308,7 @@ This the result:
 | X          | 6        |
 | anonymous  | 4        |
 | a274abc8e2 | 2        |
+<br/>
   
 Verdict
 
@@ -316,6 +323,7 @@ We can continue with the extraction of the unsuccessfull SFTP login attempts.
 ```
 cat crushftp_all.log | grep 'SERVER_LOGIN:FAIL' | grep ':SFTP' | awk -F':' '{print $7}' | sort | uniq -c | sort -nr
 ```
+<br/>
   
 This the result:
   
@@ -336,6 +344,7 @@ This the result:
 | vyos      | 2        | prometheus | 1       | centos    | 1        |
 | usr       | 2        | posiflex   | 1       | b         | 1        |
 | test      | 2        | olm        | 1       | ansadmin  | 1        |
+<br/>
   
 Verdict
 
@@ -350,12 +359,14 @@ We can continue with the extraction of the unsuccessfull FTP login attempts :
 ```
 cat crushftp_all.log | grep 'SERVER_LOGIN:FAIL' | grep ':FTP' | awk -F':' '{print $7}' | sort | uniq -c | sort -nr
 ```
+<br/>
   
 This the result:
   
 | Username   | Attempts |
 |------------|----------|
 | anonymous  | 37       |
+<br/>
   
 Verdict
 
@@ -370,12 +381,14 @@ Let's switch to successfull HTTP login attemps :
 ```
 cat crushftp_all.log | grep 'SERVER_LOGIN:SUCCESS' |  awk -F':' '{print $7}' | sort | uniq -c | sort -nr
 ```
+<br/>
   
 This the result:
   
 | Username   | Attempts |
 |------------|----------|
 | crushadmin | 37       |
+<br/>
   
 Verdict
 
