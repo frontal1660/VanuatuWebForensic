@@ -139,7 +139,23 @@ cat crushftp_all.log | grep 'SERVER_LOGIN:FAIL' | grep ':SFTP' | awk -F':' '{pri
   
 This the result:
   
-TABLEAU
+| Username  | Requests | Username   | Requests | Username | Requests |
+|-----------|---------|------------|---------|----------|---------|
+| user      | 22      | qemu       | 2       | live     | 1       |
+| pi        | 10      | odoo       | 2       | kubelet  | 1       |
+| minecraft | 7       | metricbeat | 2       | hduser   | 1       |
+| ubnt      | 6       | mcserver   | 2       | groupe   | 1       |
+| oracle    | 6       | es         | 2       | games    | 1       |
+| a         | 6       | dspace     | 2       | ftuser   | 1       |
+| postgres  | 4       | zjw        | 1       | ftp      | 1       |
+| hadoop    | 4       | user1      | 1       | fa       | 1       |
+| ansible   | 4       | ubuntu     | 1       | esuser   | 1       |
+| nagios    | 3       | support    | 1       | devops   | 1       |
+| kafka     | 3       | steam      | 1       | craft    | 1       |
+| guest     | 3       | samba      | 1       | cluster  | 1       |
+| vyos      | 2       | prometheus | 1       | centos   | 1       |
+| usr       | 2       | posiflex   | 1       | b        | 1       |
+| test      | 2       | olm        | 1       | ansadmin | 1       |
   
 Verdict
 
