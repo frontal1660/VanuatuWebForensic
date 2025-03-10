@@ -246,7 +246,7 @@ Voici le résultat final :
 | 212.83.189.230   | 34       | 163.44.118.104    | 4        | 102.152.176.5     | 1        |
 <br/>
   
-One IP is out of the box : 51.79.192.93.
+One IP is out of the box : 51.79.192.93.  
 <br/>
   
 Verdict
