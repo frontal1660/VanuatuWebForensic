@@ -288,7 +288,7 @@ Let's use Maxmind to get intel for the head of the stack:
 | 211.115.190.135 | Seogwipo, Jeju-do, South Korea (KR), Asia                   | KT                                                      |
 <br/>
   
-China litteraly pops out!
+China litteraly pops out!  
 <br/>
   
 Verdict
