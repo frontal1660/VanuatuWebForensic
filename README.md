@@ -6,14 +6,38 @@
 
 ## :alien: Action plan
 Action list :  
+- [ ] [Get the datetime crushadmin password was changed](#link-adm-changed)
 - [ ] [Get banned IP](#link-banned)
 - [ ] [Get intel from Maxmind](#link-geoip)
 - [ ] [Get unsuccessfull HTTP login attemps](#link-fail-http)
 - [ ] [Get unsuccessfull SFTP login attemps](#link-fail-sftp)
 - [ ] [Get unsuccessfull FTP login attemps](#link-fail-ftp)
 - [ ] [Get successfull HTTP login attemps](#link-success-http)
-- [ ] [Get the datetime crushadmin password was changed](#link-adm-changed)
 
+
+  <br/>
+
+##  :alien: <a name="link-adm-changed">Get the datetime crushadmin password was changed</a>
+  
+We can extract the datetime crushadmin password was changed:
+  
+```
+cat crushftp_all.log | grep 'password changed' | awk -F'|' '{print $2}'
+```
+  
+This the result:
+    
+| # | Date       | Time     |
+|---|------------|----------|
+| 1 | 03/07/2025 | 16:03:36 |
+| 2 | 03/07/2025 | 16:05:43 |
+| 3 | 03/07/2025 | 16:07:02 |
+| 4 | 03/07/2025 | 16:37:35 |
+  
+Verdict
+
+- [X] Get unsuccessfull FTP login attemps :sunglasses:
+  
   <br/>
 
 ##  :alien: <a name="link-banned">Get banned IP</a>
@@ -204,29 +228,6 @@ This the result:
 Verdict
 
 - [X] Get successfull HTTP login attempss :sunglasses:
-  
-  <br/>
-
-##  :alien: <a name="link-adm-changed">Get the datetime crushadmin password was changed</a>
-  
-We can extract the datetime crushadmin password was changed:
-  
-```
-cat crushftp_all.log | grep 'password changed' | awk -F'|' '{print $2}'
-```
-  
-This the result:
-    
-| # | Date       | Time     |
-|---|------------|----------|
-| 1 | 03/07/2025 | 16:03:36 |
-| 2 | 03/07/2025 | 16:05:43 |
-| 3 | 03/07/2025 | 16:07:02 |
-| 4 | 03/07/2025 | 16:37:35 |
-  
-Verdict
-
-- [X] Get unsuccessfull FTP login attemps :sunglasses:
   
   <br/>
 
