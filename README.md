@@ -7,7 +7,13 @@
 ## :alien: Action plan
 Action list :  
 - [ ] [Get banned IP](#link-banned)
-  
+- [ ] [Get intel from Maxmind](#link-geoip)
+- [ ] [Get unsuccessfull HTTP login attemps](#link-fail-http)
+- [ ] [Get unsuccessfull SFTP login attemps](#link-fail-sftp)
+- [ ] [Get unsuccessfull FTP login attemps](#link-fail-ftp)
+- [ ] [Get successfull HTTP login attemps](#link-success-http)
+- [ ] [Get the datetime crushadmin password was changed](#link-adm-changed)
+
   <br/>
 
 ##  :alien: <a name="link-banned">Get banned IP</a>
@@ -177,9 +183,9 @@ Verdict
   
   <br/>
 
-##  :alien: <a name="link-fail-sftp">Get unsuccessfull FTP login attemps</a>
+##  :alien: <a name="link-adm-changed">Get the datetime crushadmin password was changed</a>
   
-We can extract the datetime where crushadmin password was changed:
+We can extract the datetime crushadmin password was changed:
   
 ```
 cat crushftp_all.log | grep 'password changed' | awk -F'|' '{print $2}'
