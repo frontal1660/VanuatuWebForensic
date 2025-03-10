@@ -45,8 +45,8 @@ Verdict
   
 1. Action #1
   
-The hacker successfully authenticates with crushadmin user, with the correct password:
-He's got an admin cookie.
+The hacker successfully authenticates with crushadmin user, with the correct password:  
+He now has an admin cookie set.
   
 ```
 POST|03/07/2025 16:03:36.641|[HTTP:541455_33326_8sB::147.45.112.220] READ: *POST /WebInterface/function/ HTTP/1.1*
