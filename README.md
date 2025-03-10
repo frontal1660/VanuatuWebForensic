@@ -7,6 +7,7 @@
 ## :alien: Action plan
 Action list :  
 - [ ] [Get the datetime crushadmin password was changed](#link-adm-changed)
+- [ ] [Identify major actions made by 147.45.112.220 under HTTP interface](#link-actions)
 - [ ] [Get banned IP](#link-banned)
 - [ ] [Get intel from Maxmind](#link-geoip)
 - [ ] [Get unsuccessfull HTTP login attemps](#link-fail-http)
@@ -17,9 +18,9 @@ Action list :
 
   <br/>
 
-##  :alien: <a name="link-adm-changed">Get the datetime crushadmin password was changed</a>
+##  :alien: <a name="link-adm-changed">Get the datetime when crushadmin password was changed</a>
   
-We can extract the datetime crushadmin password was changed:
+We can extract the datetime when crushadmin password was changed:
   
 ```
 cat crushftp_all.log | grep 'password changed' | awk -F'|' '{print $2}'
@@ -36,7 +37,138 @@ This the result:
   
 Verdict
 
-- [X] Get unsuccessfull FTP login attemps :sunglasses:
+- [X] >Get the datetime crushadmin when password was changed :sunglasses:
+  
+  <br/>
+
+##  :alien: <a name="link-actions">Identify major actions made by 147.45.112.220 under HTTP interface</a>
+  
+1. Action #1
+  
+
+```
+POST|03/07/2025 16:03:36.641|[HTTP:541455_33326_8sB::147.45.112.220] READ: *POST /WebInterface/function/ HTTP/1.1*
+POST|03/07/2025 16:03:36.643|[HTTP:541455_33326_8sB::147.45.112.220] READ: *user_ip: 127.0.0.1*
+POST|03/07/2025 16:03:36.644|[HTTP:541455_33326_8sB::147.45.112.220] READ: *command:login*
+POST|03/07/2025 16:03:36.646|[HTTP:541455_33326_8sB::147.45.112.220] READ: *username:crushadmin*
+POST|03/07/2025 16:03:36.648|[HTTP:541455_33326_8sB::147.45.112.220] READ: *password:************
+POST|03/07/2025 16:03:36.649|[HTTP:541455_33326_8sB::147.45.112.220] READ: *encoded:true*
+POST|03/07/2025 16:03:36.650|[HTTP:541455_33326_8sB::147.45.112.220] READ: *language:en*
+POST|03/07/2025 16:03:36.652|[HTTP:541455_33326_8sB::147.45.112.220] READ: *random:0.5784904717377481*
+STOR|03/07/2025 16:03:36.684|[HTTP:541455_33326:crushadmin:147.45.112.220] WROTE: *230 Password OK.  Connected.*
+SERVER|03/07/2025 16:03:36.687|SERVER_LOGIN:SUCCESS:541455:MainUsers:crushadmin:HTTP:147.45.112.220:
+POST|03/07/2025 16:03:36.688|[HTTP:541455_33326:crushadmin:147.45.112.220] WROTE: *HTTP/1.1 200 OK*
+POST|03/07/2025 16:03:36.689|[HTTP:541455_33326:crushadmin:147.45.112.220] WROTE: *Set-Cookie: currentAuth=zIpc; path=/
+```
+  
+2. Action #2
+  
+
+```
+POST|03/07/2025 16:03:36.720|[HTTP:541455_33326_fhu:crushadmin:147.45.112.220] READ: *POST /WebInterface/function/ HTTP/1.1*
+POST|03/07/2025 16:03:36.721|[HTTP:541455_33326_fhu:crushadmin:147.45.112.220] READ: *command:getUser*
+POST|03/07/2025 16:03:36.723|[HTTP:541455_33326_fhu:crushadmin:147.45.112.220] READ: *serverGroup:MainUsers*
+POST|03/07/2025 16:03:36.724|[HTTP:541455_33326_fhu:crushadmin:147.45.112.220] READ: *username:crushadmin*
+POST|03/07/2025 16:03:36.725|[HTTP:541455_33326_fhu:crushadmin:147.45.112.220] READ: *c2f:zIpc*
+POST|03/07/2025 16:03:36.737|[HTTP:541455_33326:crushadmin:147.45.112.220] WROTE: *HTTP/1.1 200 OK*
+ACCEPT|03/07/2025 16:03:36.770|[HTTP:541455_33328:lookup:9090] Accepting connection from: 147.45.112.220:33328
+```
+
+3. Action #3
+  
+
+```
+POST|03/07/2025 16:03:36.772|[HTTP:541455_33326_Bj7:crushadmin:147.45.112.220] READ: *POST /WebInterface/function/ HTTP/1.1*
+POST|03/07/2025 16:03:36.773|[HTTP:541455_33326_Bj7:crushadmin:147.45.112.220] READ: *command:setUserItem*
+POST|03/07/2025 16:03:36.775|[HTTP:541455_33326_Bj7:crushadmin:147.45.112.220] READ: *data_action:replace*
+POST|03/07/2025 16:03:36.776|[HTTP:541455_33326_Bj7:crushadmin:147.45.112.220] READ: *serverGroup:MainUsers*
+POST|03/07/2025 16:03:36.778|[HTTP:541455_33326_Bj7:crushadmin:147.45.112.220] READ: *username:crushadmin*
+POST|03/07/2025 16:03:36.779|[HTTP:541455_33326_Bj7:crushadmin:147.45.112.220] READ: *user:<?xml+version="1.0"+encoding="utf-8"?>
+POST|03/07/2025 16:03:36.781|[HTTP:541455_33326_Bj7:crushadmin:147.45.112.220] READ: *xmlItem:user*
+POST|03/07/2025 16:03:36.783|[HTTP:541455_33326_Bj7:crushadmin:147.45.112.220] READ: *vfs_items:<?xml+version="1.0"+encoding="utf-8"?>
+POST|03/07/2025 16:03:36.784|[HTTP:541455_33326_Bj7:crushadmin:147.45.112.220] READ: *permissions:<?xml+version="1.0"+encoding="utf-8"?>
+POST|03/07/2025 16:03:36.786|[HTTP:541455_33326_Bj7:crushadmin:147.45.112.220] READ: *c2f:zIpc*
+POST|03/07/2025 16:03:36.883|[HTTP:541455_33328:crushadmin:147.45.112.220] WROTE: *HTTP/1.1 200 OK*
+ACCEPT|03/07/2025 16:03:37.261|[HTTP:541455_33330:lookup:9090] Accepting connection from: 147.45.112.220:33330
+```
+  
+4. Action #4
+  
+
+```
+POST|03/07/2025 16:03:37.263|[HTTP:541455_33326_kOR:crushadmin:147.45.112.220] READ: *POST /WebInterface/function/ HTTP/1.1*
+POST|03/07/2025 16:03:37.265|[HTTP:541455_33326_kOR:crushadmin:147.45.112.220] READ: *user_ip: 127.0.0.1*
+POST|03/07/2025 16:03:37.267|[HTTP:541455_33326_kOR:crushadmin:147.45.112.220] READ: *command:openFile*
+POST|03/07/2025 16:03:37.268|[HTTP:541455_33326_kOR:crushadmin:147.45.112.220] READ: *c2f:zIpc*
+POST|03/07/2025 16:03:37.270|[HTTP:541455_33326_kOR:crushadmin:147.45.112.220] READ: *upload_path:/crushtmplog/1871264c-ce01-4270-aef1-6a2f38515ad7.txt*
+POST|03/07/2025 16:03:37.271|[HTTP:541455_33326_kOR:crushadmin:147.45.112.220] READ: *upload_size:1003702*
+POST|03/07/2025 16:03:37.273|[HTTP:541455_33326_kOR:crushadmin:147.45.112.220] READ: *upload_id:2148654e*
+POST|03/07/2025 16:03:37.275|[HTTP:541455_33326_kOR:crushadmin:147.45.112.220] READ: *start_resume_loc:0*
+POST|03/07/2025 16:03:37.276|[HTTP:541455_33326_kOR:crushadmin:147.45.112.220] READ: *random:0.345679978990884*
+STOR|03/07/2025 16:03:37.287|[HTTP:541455_33326:crushadmin:147.45.112.220] WROTE: *150 Opening BINARY data connection.  Ready to write file /1871264c-ce01-4270-aef1-6a2f38515ad7.txt. S T O R*
+POST|03/07/2025 16:03:37.586|[HTTP:541455_33330:crushadmin:147.45.112.220] WROTE: *HTTP/1.1 200 OK*
+POST|03/07/2025 16:03:37.619|[HTTP:541455_33326_rur:crushadmin:147.45.112.220] READ: *POST /U/2148654e~1~1003702 HTTP/1.1*
+POST|03/07/2025 16:03:37.621|[HTTP:541455_33326_rur:crushadmin:147.45.112.220] READ: *user_ip: 127.0.0.1*
+POST|03/07/2025 16:03:37.727|[HTTP:541455_33330:crushadmin:147.45.112.220] WROTE: *HTTP/1.1 200 OK*
+```
+  
+5. Action #5
+  
+
+```
+POST|03/07/2025 16:03:37.763|[HTTP:541455_33326_57F:crushadmin:147.45.112.220] READ: *POST /WebInterface/function/ HTTP/1.1*
+POST|03/07/2025 16:03:37.764|[HTTP:541455_33326_57F:crushadmin:147.45.112.220] READ: *user_ip: 127.0.0.1*
+POST|03/07/2025 16:03:37.766|[HTTP:541455_33326_57F:crushadmin:147.45.112.220] READ: *command:closeFile*
+POST|03/07/2025 16:03:37.768|[HTTP:541455_33326_57F:crushadmin:147.45.112.220] READ: *c2f:zIpc*
+POST|03/07/2025 16:03:37.769|[HTTP:541455_33326_57F:crushadmin:147.45.112.220] READ: *upload_id:2148654e*
+POST|03/07/2025 16:03:37.771|[HTTP:541455_33326_57F:crushadmin:147.45.112.220] READ: *total_chunks:1*
+POST|03/07/2025 16:03:37.773|[HTTP:541455_33326_57F:crushadmin:147.45.112.220] READ: *total_bytes:1003702*
+POST|03/07/2025 16:03:37.774|[HTTP:541455_33326_57F:crushadmin:147.45.112.220] READ: *filePath:/crushtmplog/1871264c-ce01-4270-aef1-6a2f38515ad7.txt*
+POST|03/07/2025 16:03:37.776|[HTTP:541455_33326_57F:crushadmin:147.45.112.220] READ: *lastModified:1713988562086*
+POST|03/07/2025 16:03:37.778|[HTTP:541455_33326_57F:crushadmin:147.45.112.220] READ: *random:0.10444100243921683*
+STOR|03/07/2025 16:03:37.817|[HTTP:541455_33326:crushadmin:147.45.112.220] WROTE: *226-Upload File Size:1003702 bytes @ 980K/sec. MD5=1945485edcdea03caad347041b7b8a37*
+STOR|03/07/2025 16:03:37.819|[HTTP:541455_33326:crushadmin:147.45.112.220] WROTE: *226 Transfer complete.  MD5=1945485edcdea03caad347041b7b8a37 ("/1871264c-ce01-4270-aef1-6a2f38515ad7.txt" 1003702) STOR*
+POST|03/07/2025 16:03:37.838|[HTTP:541455_33330:crushadmin:147.45.112.220] WROTE: *HTTP/1.1 200 OK*
+```
+  
+6. Action #6
+  
+
+```
+POST|03/07/2025 16:03:37.870|[HTTP:541455_33326_6n8:crushadmin:147.45.112.220] READ: *POST /WebInterface/function/ HTTP/1.1*
+POST|03/07/2025 16:03:37.872|[HTTP:541455_33326_6n8:crushadmin:147.45.112.220] READ: *user_ip: 127.0.0.1*
+POST|03/07/2025 16:03:37.874|[HTTP:541455_33326_6n8:crushadmin:147.45.112.220] READ: *command:getServerItem,c2f:zIpc,key:server_settings*
+POST|03/07/2025 16:03:37.941|[HTTP:541455_33326_EOg:crushadmin:147.45.112.220] READ: *POST /WebInterface/function/ HTTP/1.1*
+POST|03/07/2025 16:03:37.943|[HTTP:541455_33326_EOg:crushadmin:147.45.112.220] READ: *user_ip: 127.0.0.1*
+POST|03/07/2025 16:03:37.945|[HTTP:541455_33326_EOg:crushadmin:147.45.112.220] READ: *command:setServerItem*
+POST|03/07/2025 16:03:37.947|[HTTP:541455_33326_EOg:crushadmin:147.45.112.220] READ: *key:server_settings/plugins/5/1*
+POST|03/07/2025 16:03:37.949|[HTTP:541455_33326_EOg:crushadmin:147.45.112.220] READ: *data_type:vector*
+POST|03/07/2025 16:03:37.951|[HTTP:541455_33326_EOg:crushadmin:147.45.112.220] READ: *data_action:change*
+POST|03/07/2025 16:03:37.953|[HTTP:541455_33326_EOg:crushadmin:147.45.112.220] READ: *data:<plugins_subitem+type="properties">
+POST|03/07/2025 16:03:37.954|[HTTP:541455_33326_EOg:crushadmin:147.45.112.220] READ: *c2f:zIpc*
+POST|03/07/2025 16:03:38.171|[HTTP:541455_33330:crushadmin:147.45.112.220] WROTE: *HTTP/1.1 200 OK*
+```
+  
+7. Action #7
+  
+
+```
+POST|03/07/2025 16:03:38.244|[HTTP:541455_33326_mky:crushadmin:147.45.112.220] READ: *POST /WebInterface/function/ HTTP/1.1*
+POST|03/07/2025 16:03:38.246|[HTTP:541455_33326_mky:crushadmin:147.45.112.220] READ: *user_ip: 127.0.0.1*
+POST|03/07/2025 16:03:38.248|[HTTP:541455_33326_mky:crushadmin:147.45.112.220] READ: *command:pluginMethodCall*
+POST|03/07/2025 16:03:38.250|[HTTP:541455_33326_mky:crushadmin:147.45.112.220] READ: *method:testSettings*
+POST|03/07/2025 16:03:38.252|[HTTP:541455_33326_mky:crushadmin:147.45.112.220] READ: *pluginName:CrushSQL*
+POST|03/07/2025 16:03:38.254|[HTTP:541455_33326_mky:crushadmin:147.45.112.220] READ: *pluginSubItem:*
+POST|03/07/2025 16:03:38.256|[HTTP:541455_33326_mky:crushadmin:147.45.112.220] READ: *c2f:zIpc*
+POST|03/07/2025 16:03:38.267|[HTTP:541455_33330:crushadmin:147.45.112.220] WROTE: *HTTP/1.1 200 OK*
+POST|03/07/2025 16:03:38.270|[HTTP:541455_33330:crushadmin:147.45.112.220] WROTE: *<commandResult><response>java.lang.UnsupportedClassVersionError: com/mysql/jdbc/Driver has been compiled by a more recent version of the Java Runtime (class file version 67.0), this version of the Java Runtime only recognizes class file versions up to 61.0</response></commandResult>*
+```
+
+         
+  
+Verdict
+
+- [X] Identify major actions made by 147.45.112.220  under HTTP interface :sunglasses:
   
   <br/>
 
