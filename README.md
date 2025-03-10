@@ -15,6 +15,7 @@ Action list :
 - [ ] [Get unsuccessfull SFTP login attemps](#link-fail-sftp)
 - [ ] [Get unsuccessfull FTP login attemps](#link-fail-ftp)
 - [ ] [Get successfull HTTP login attemps](#link-success-http)
+  
   <br/>
 
 ##  :alien: <a name="link-preamble">Preamble</a>
@@ -28,9 +29,6 @@ Verdict
 - [X] Preamble :sunglasses:
   
   <br/>
-
-
-
 
 ##  :alien: <a name="link-adm-changed">Get the datetime when crushadmin password was changed</a>
   
