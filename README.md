@@ -173,7 +173,9 @@ cat crushftp_all.log | grep 'SERVER_LOGIN:FAIL' | grep ':FTP' | awk -F':' '{prin
   
 This the result:
   
-TABLEAU
+| Username   | Requests |
+|------------|----------|
+| anonymous  | 37       |
   
 Verdict
 
