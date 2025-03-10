@@ -20,8 +20,8 @@ Action list :
 
 ##  :alien: <a name="link-preamble">Preamble</a>
   
-All CrushFRP log files, from 02/09/2025 to 03/07/2025, has been stored to one unique log file.  
-This makes analyzes easier.
+All CrushFTP log files, from 02/09/2025 to 03/07/2025, has been stored to one unique log file.  
+This makes analyzes easier.  
 <br/>
   
 Verdict
