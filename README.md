@@ -107,19 +107,31 @@ Verdict
 
 ##  :alien: <a name="link-fail-http">Get unsuccessfull HTTP login attemps</a>
   
-It's time to extrat the unsuccessfull HTTP login attempts. 
+It's time to extrat the unsuccessfull HTTP login attempts : 
+  
+```
+cat crushftp_all.log | grep 'SERVER_LOGIN:FAIL' | grep ':HTTP' | awk -F':' '{print $7}' | sort | uniq -c | sort -nr
+```
+  
+This the result:
   
 TABLEAU
   
 Verdict
 
-- [X] Get intel from Maxmind :sunglasses:
+- [X] Get unsuccessfull HTTP login attemps :sunglasses:
   
   <br/>
 
 ##  :alien: <a name="link-fail-sftp">Get unsuccessfull SFTP login attemps</a>
   
 We can continue with the extraction of the unsuccessfull SFTP login attempts. 
+  
+```
+cat crushftp_all.log | grep 'SERVER_LOGIN:FAIL' | grep ':SFTP' | awk -F':' '{print $7}' | sort | uniq -c | sort -nr
+```
+  
+This the result:
   
 TABLEAU
   
@@ -129,9 +141,15 @@ Verdict
   
   <br/>
 
-##  :alien: <a name="link-fail-sftp">Get unsuccessfull FTP login attemps</a>
+##  :alien: <a name="link-fail-ftp">Get unsuccessfull FTP login attemps</a>
   
-We can continue with the extraction of the unsuccessfull FTP login attempts. 
+We can continue with the extraction of the unsuccessfull FTP login attempts : 
+  
+```
+cat crushftp_all.log | grep 'SERVER_LOGIN:FAIL' | grep ':FTP' | awk -F':' '{print $7}' | sort | uniq -c | sort -nr
+```
+  
+This the result:
   
 TABLEAU
   
@@ -141,7 +159,41 @@ Verdict
   
   <br/>
 
+##  :alien: <a name="link-success-http">Get successfull HTTP login attemps</a>
+  
+Let's switch to successfull HTTP login attemps :  
+  
+```
+cat crushftp_all.log | grep 'SERVER_LOGIN:SUCCESS' |  awk -F':' '{print $7}' | sort | uniq -c | sort -nr
+```
+  
+This the result:
+  
+TABLEAU
+  
+Verdict
 
+- [X] Get successfull HTTP login attempss :sunglasses:
+  
+  <br/>
+
+##  :alien: <a name="link-fail-sftp">Get unsuccessfull FTP login attemps</a>
+  
+We can extract the datetime where crushadmin password was changed:
+  
+```
+cat crushftp_all.log | grep 'password changed' | awk -F'|' '{print $2}'
+```
+  
+This the result:
+    
+TABLEAU
+  
+Verdict
+
+- [X] Get unsuccessfull FTP login attemps :sunglasses:
+  
+  <br/>
 
 
 
