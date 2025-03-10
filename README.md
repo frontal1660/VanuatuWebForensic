@@ -15,7 +15,6 @@ Action list :
 - [ ] [Get unsuccessfull FTP login attemps](#link-fail-ftp)
 - [ ] [Get successfull HTTP login attemps](#link-success-http)
 
-
   <br/>
 
 ##  :alien: <a name="link-adm-changed">Get the datetime when crushadmin password was changed</a>
@@ -37,7 +36,7 @@ This the result:
   
 Verdict
 
-- [X] >Get the datetime crushadmin when password was changed :sunglasses:
+- [X] Get the datetime crushadmin when password was changed :sunglasses:
   
   <br/>
 
@@ -171,6 +170,8 @@ POST|03/07/2025 16:03:38.171|[crushadmin:147.45.112.220] WROTE: *HTTP/1.1 200 OK
 The hackers calls its plugin now known by the name _CrushSQL_.  
   
 The name of the plugin might be a decoy to "hide" this malicious plugin.
+  
+The plugin is actually a JAR archive.
   
 ```
 POST|03/07/2025 16:03:38.244|[crushadmin:147.45.112.220] READ: *POST /WebInterface/function/ HTTP/1.1*
