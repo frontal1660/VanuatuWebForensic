@@ -121,7 +121,7 @@ cat crushftp_all.log | grep 'SERVER_LOGIN:FAIL' | grep ':HTTP' | awk -F':' '{pri
   
 This the result:
   
-| Username   | Requests |
+| Username   | Attempts |
 |------------|----------|
 | X          | 6        |
 | anonymous  | 4        |
@@ -143,23 +143,23 @@ cat crushftp_all.log | grep 'SERVER_LOGIN:FAIL' | grep ':SFTP' | awk -F':' '{pri
   
 This the result:
   
-| Username  | Requests | Username   | Requests | Username | Requests |
-|-----------|---------|------------|---------|----------|---------|
-| user      | 22      | qemu       | 2       | live     | 1       |
-| pi        | 10      | odoo       | 2       | kubelet  | 1       |
-| minecraft | 7       | metricbeat | 2       | hduser   | 1       |
-| ubnt      | 6       | mcserver   | 2       | groupe   | 1       |
-| oracle    | 6       | es         | 2       | games    | 1       |
-| a         | 6       | dspace     | 2       | ftuser   | 1       |
-| postgres  | 4       | zjw        | 1       | ftp      | 1       |
-| hadoop    | 4       | user1      | 1       | fa       | 1       |
-| ansible   | 4       | ubuntu     | 1       | esuser   | 1       |
-| nagios    | 3       | support    | 1       | devops   | 1       |
-| kafka     | 3       | steam      | 1       | craft    | 1       |
-| guest     | 3       | samba      | 1       | cluster  | 1       |
-| vyos      | 2       | prometheus | 1       | centos   | 1       |
-| usr       | 2       | posiflex   | 1       | b        | 1       |
-| test      | 2       | olm        | 1       | ansadmin | 1       |
+| Username  | Attempts | Username   | Attempts | Username | Attempts |
+|-----------|----------|------------|----------|----------|----------|
+| user      | 22       | qemu       | 2       | live      | 1        |
+| pi        | 10       | odoo       | 2       | kubelet   | 1        |
+| minecraft | 7        | metricbeat | 2       | hduser    | 1        |
+| ubnt      | 6        | mcserver   | 2       | groupe    | 1        |
+| oracle    | 6        | es         | 2       | games     | 1        |
+| a         | 6        | dspace     | 2       | ftuser    | 1        |
+| postgres  | 4        | zjw        | 1       | ftp       | 1        |
+| hadoop    | 4        | user1      | 1       | fa        | 1        |
+| ansible   | 4        | ubuntu     | 1       | esuser    | 1        |
+| nagios    | 3        | support    | 1       | devops    | 1        |
+| kafka     | 3        | steam      | 1       | craft     | 1        |
+| guest     | 3        | samba      | 1       | cluster   | 1        |
+| vyos      | 2        | prometheus | 1       | centos    | 1        |
+| usr       | 2        | posiflex   | 1       | b         | 1        |
+| test      | 2        | olm        | 1       | ansadmin  | 1        |
   
 Verdict
 
@@ -177,7 +177,7 @@ cat crushftp_all.log | grep 'SERVER_LOGIN:FAIL' | grep ':FTP' | awk -F':' '{prin
   
 This the result:
   
-| Username   | Requests |
+| Username   | Attempts |
 |------------|----------|
 | anonymous  | 37       |
   
@@ -197,7 +197,7 @@ cat crushftp_all.log | grep 'SERVER_LOGIN:SUCCESS' |  awk -F':' '{print $7}' | s
   
 This the result:
   
-| Username   | Requests |
+| Username   | Attempts |
 |------------|----------|
 | crushadmin | 37       |
   
@@ -217,7 +217,12 @@ cat crushftp_all.log | grep 'password changed' | awk -F'|' '{print $2}'
   
 This the result:
     
-TABLEAU
+| Date       | Time     |
+|------------|----------|
+| 03/07/2025 | 16:03:36 |
+| 03/07/2025 | 16:05:43 |
+| 03/07/2025 | 16:07:02 |
+| 03/07/2025 | 16:37:35 |
   
 Verdict
 
