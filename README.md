@@ -62,6 +62,7 @@ SERVER|03/07/2025 16:03:36.687|SERVER_LOGIN:SUCCESS:541455:MainUsers:crushadmin:
 POST|03/07/2025 16:03:36.688|[HTTP:541455_33326:crushadmin:147.45.112.220] WROTE: *HTTP/1.1 200 OK*
 POST|03/07/2025 16:03:36.689|[HTTP:541455_33326:crushadmin:147.45.112.220] WROTE: *Set-Cookie: currentAuth=zIpc; path=/
 ```
+<br/>
   
 2. Action #2
   
@@ -76,7 +77,8 @@ POST|03/07/2025 16:03:36.725|[HTTP:541455_33326_fhu:crushadmin:147.45.112.220] R
 POST|03/07/2025 16:03:36.737|[HTTP:541455_33326:crushadmin:147.45.112.220] WROTE: *HTTP/1.1 200 OK*
 ACCEPT|03/07/2025 16:03:36.770|[HTTP:541455_33328:lookup:9090] Accepting connection from: 147.45.112.220:33328
 ```
-
+<br/>
+  
 3. Action #3
   
 The hacker replaces a user item (not sure to understand which one):
@@ -95,6 +97,7 @@ POST|03/07/2025 16:03:36.786|[HTTP:541455_33326_Bj7:crushadmin:147.45.112.220] R
 POST|03/07/2025 16:03:36.883|[HTTP:541455_33328:crushadmin:147.45.112.220] WROTE: *HTTP/1.1 200 OK*
 ACCEPT|03/07/2025 16:03:37.261|[HTTP:541455_33330:lookup:9090] Accepting connection from: 147.45.112.220:33330
 ```
+<br/>
   
 4. Action #4
   
@@ -116,6 +119,7 @@ POST|03/07/2025 16:03:37.619|[HTTP:541455_33326_rur:crushadmin:147.45.112.220] R
 POST|03/07/2025 16:03:37.621|[HTTP:541455_33326_rur:crushadmin:147.45.112.220] READ: *user_ip: 127.0.0.1*
 POST|03/07/2025 16:03:37.727|[HTTP:541455_33330:crushadmin:147.45.112.220] WROTE: *HTTP/1.1 200 OK*
 ```
+<br/>
   
 5. Action #5
   
@@ -136,6 +140,7 @@ STOR|03/07/2025 16:03:37.817|[HTTP:541455_33326:crushadmin:147.45.112.220] WROTE
 STOR|03/07/2025 16:03:37.819|[HTTP:541455_33326:crushadmin:147.45.112.220] WROTE: *226 Transfer complete.  MD5=1945485edcdea03caad347041b7b8a37 ("/1871264c-ce01-4270-aef1-6a2f38515ad7.txt" 1003702) STOR*
 POST|03/07/2025 16:03:37.838|[HTTP:541455_33330:crushadmin:147.45.112.220] WROTE: *HTTP/1.1 200 OK*
 ```
+<br/>
   
 6. Action #6
   
@@ -159,6 +164,7 @@ POST|03/07/2025 16:03:37.953|[HTTP:541455_33326_EOg:crushadmin:147.45.112.220] R
 POST|03/07/2025 16:03:37.954|[HTTP:541455_33326_EOg:crushadmin:147.45.112.220] READ: *c2f:zIpc*
 POST|03/07/2025 16:03:38.171|[HTTP:541455_33330:crushadmin:147.45.112.220] WROTE: *HTTP/1.1 200 OK*
 ```
+<br/>
   
 7. Action #7
   
@@ -177,8 +183,8 @@ POST|03/07/2025 16:03:38.256|[HTTP:541455_33326_mky:crushadmin:147.45.112.220] R
 POST|03/07/2025 16:03:38.267|[HTTP:541455_33330:crushadmin:147.45.112.220] WROTE: *HTTP/1.1 200 OK*
 POST|03/07/2025 16:03:38.270|[HTTP:541455_33330:crushadmin:147.45.112.220] WROTE: *<commandResult><response>java.lang.UnsupportedClassVersionError: com/mysql/jdbc/Driver has been compiled by a more recent version of the Java Runtime (class file version 67.0), this version of the Java Runtime only recognizes class file versions up to 61.0</response></commandResult>*
 ```
-
-    
+<br/>
+  
 Verdict
 
 - [X] Identify major actions made by 147.45.112.220  under HTTP interface :sunglasses:
