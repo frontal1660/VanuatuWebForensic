@@ -6,6 +6,7 @@
 
 ## :alien: Action plan
 Action list :  
+- [ ] [Preamble](#link-preamble)
 - [ ] [Get the datetime crushadmin password was changed](#link-adm-changed)
 - [ ] [Identify major actions made by 147.45.112.220 under HTTP interface](#link-actions)
 - [ ] [Get banned IP](#link-banned)
@@ -14,8 +15,22 @@ Action list :
 - [ ] [Get unsuccessfull SFTP login attemps](#link-fail-sftp)
 - [ ] [Get unsuccessfull FTP login attemps](#link-fail-ftp)
 - [ ] [Get successfull HTTP login attemps](#link-success-http)
-
   <br/>
+
+##  :alien: <a name="link-preamble">Preamble</a>
+  
+All CrushFRP log files, from 02/09/2025 to 03/07/2025, has been stored to one unique log file.  
+This makes analyzes easier.
+<br/>
+  
+Verdict
+
+- [X] Preamble :sunglasses:
+  
+  <br/>
+
+
+
 
 ##  :alien: <a name="link-adm-changed">Get the datetime when crushadmin password was changed</a>
   
