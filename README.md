@@ -4,10 +4,22 @@
 ![image](https://github.com/user-attachments/assets/09b98e74-d7cb-487b-b7e8-fddd0fd731d0)  
 <br/>
 
-## :alien: Plan d'actions
+## :alien: Action plan
+Action list :  
+- [ ] [Get banned IP](#link-banned)
+  
+  <br/>
 
-
-
+##  :alien: <a name="link-banned">Get banned IP</a>
+  
+The following command can be used to get some kind of banned IP list :  
+  
+```
+bash# cat crushftp_all.log | grep DENIAL | awk '{print $6}' | awk -F':' '{print $2}' | sort | uniq -c | sort -nr
+```
+  
+Voici le résultat final :
+  
 | Adresse IP       | Requêtes | Adresse IP        | Requêtes | Adresse IP        | Requêtes |
 |------------------|----------|-------------------|----------|-------------------|----------|
 | 51.79.192.93     | 1919     | 91.171.4.7        | 287      | 125.87.84.110     | 68       |
@@ -19,5 +31,22 @@
 | 107.150.119.158  | 441      | 111.43.14.230     | 79       | 211.115.190.135   | 40       |
 | 104.248.63.189   | 441      | 119.204.199.162   | 77       | 190.181.17.7      | 40       |
 | 20.102.89.253    | 411      | 138.68.88.167     | 69       | 101.89.148.7      | 40       |
+  
+One IP is out of the box : 51.79.192.93.
+  
+Verdict
+
+- [X] Get banned IP :sunglasses:
+  
+  <br/>
+
+##  :alien: <a name="link-geoip"></a>
+
+
+
+
+
+
+
 
 
