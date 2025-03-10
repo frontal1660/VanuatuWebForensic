@@ -45,7 +45,9 @@ Verdict
   
 1. Action #1
   
-
+The hacker successfully authenticates with crushadmin user, with the correct password:
+He's got an admin cookie.
+  
 ```
 POST|03/07/2025 16:03:36.641|[HTTP:541455_33326_8sB::147.45.112.220] READ: *POST /WebInterface/function/ HTTP/1.1*
 POST|03/07/2025 16:03:36.643|[HTTP:541455_33326_8sB::147.45.112.220] READ: *user_ip: 127.0.0.1*
@@ -63,7 +65,8 @@ POST|03/07/2025 16:03:36.689|[HTTP:541455_33326:crushadmin:147.45.112.220] WROTE
   
 2. Action #2
   
-
+The hacker prompts the list of registered users:
+  
 ```
 POST|03/07/2025 16:03:36.720|[HTTP:541455_33326_fhu:crushadmin:147.45.112.220] READ: *POST /WebInterface/function/ HTTP/1.1*
 POST|03/07/2025 16:03:36.721|[HTTP:541455_33326_fhu:crushadmin:147.45.112.220] READ: *command:getUser*
@@ -76,7 +79,8 @@ ACCEPT|03/07/2025 16:03:36.770|[HTTP:541455_33328:lookup:9090] Accepting connect
 
 3. Action #3
   
-
+The hacker replaces a user item (not sure to understand which one):
+  
 ```
 POST|03/07/2025 16:03:36.772|[HTTP:541455_33326_Bj7:crushadmin:147.45.112.220] READ: *POST /WebInterface/function/ HTTP/1.1*
 POST|03/07/2025 16:03:36.773|[HTTP:541455_33326_Bj7:crushadmin:147.45.112.220] READ: *command:setUserItem*
@@ -94,7 +98,8 @@ ACCEPT|03/07/2025 16:03:37.261|[HTTP:541455_33330:lookup:9090] Accepting connect
   
 4. Action #4
   
-
+The hacker uploads a the file _crushtmplog/1871264c-ce01-4270-aef1-6a2f38515ad7.txt_ in FTP_ROOT:
+  
 ```
 POST|03/07/2025 16:03:37.263|[HTTP:541455_33326_kOR:crushadmin:147.45.112.220] READ: *POST /WebInterface/function/ HTTP/1.1*
 POST|03/07/2025 16:03:37.265|[HTTP:541455_33326_kOR:crushadmin:147.45.112.220] READ: *user_ip: 127.0.0.1*
@@ -114,7 +119,8 @@ POST|03/07/2025 16:03:37.727|[HTTP:541455_33330:crushadmin:147.45.112.220] WROTE
   
 5. Action #5
   
-
+The hacker can see on the screen that the file _crushtmplog/1871264c-ce01-4270-aef1-6a2f38515ad7.txt_ has been uploaded with success:
+  
 ```
 POST|03/07/2025 16:03:37.763|[HTTP:541455_33326_57F:crushadmin:147.45.112.220] READ: *POST /WebInterface/function/ HTTP/1.1*
 POST|03/07/2025 16:03:37.764|[HTTP:541455_33326_57F:crushadmin:147.45.112.220] READ: *user_ip: 127.0.0.1*
@@ -133,7 +139,12 @@ POST|03/07/2025 16:03:37.838|[HTTP:541455_33330:crushadmin:147.45.112.220] WROTE
   
 6. Action #6
   
-
+The hacker checks/modifies a setting of a plugin (_server_settings/plugins/5/1_).  
+  
+It is pretty obvious that :  
+1. the file _crushtmplog/1871264c-ce01-4270-aef1-6a2f38515ad7.txt_ is actually a malicious CrushFTP plugin:
+2. the hacker has renamed the plugin with a specific name
+  
 ```
 POST|03/07/2025 16:03:37.870|[HTTP:541455_33326_6n8:crushadmin:147.45.112.220] READ: *POST /WebInterface/function/ HTTP/1.1*
 POST|03/07/2025 16:03:37.872|[HTTP:541455_33326_6n8:crushadmin:147.45.112.220] READ: *user_ip: 127.0.0.1*
@@ -151,7 +162,10 @@ POST|03/07/2025 16:03:38.171|[HTTP:541455_33330:crushadmin:147.45.112.220] WROTE
   
 7. Action #7
   
-
+The hackers calls its plugin now known by the name _CrushSQL_.  
+  
+The name of the plugin might be a decoy to "hide" this malicious plugin.
+  
 ```
 POST|03/07/2025 16:03:38.244|[HTTP:541455_33326_mky:crushadmin:147.45.112.220] READ: *POST /WebInterface/function/ HTTP/1.1*
 POST|03/07/2025 16:03:38.246|[HTTP:541455_33326_mky:crushadmin:147.45.112.220] READ: *user_ip: 127.0.0.1*
@@ -164,8 +178,7 @@ POST|03/07/2025 16:03:38.267|[HTTP:541455_33330:crushadmin:147.45.112.220] WROTE
 POST|03/07/2025 16:03:38.270|[HTTP:541455_33330:crushadmin:147.45.112.220] WROTE: *<commandResult><response>java.lang.UnsupportedClassVersionError: com/mysql/jdbc/Driver has been compiled by a more recent version of the Java Runtime (class file version 67.0), this version of the Java Runtime only recognizes class file versions up to 61.0</response></commandResult>*
 ```
 
-         
-  
+    
 Verdict
 
 - [X] Identify major actions made by 147.45.112.220  under HTTP interface :sunglasses:
