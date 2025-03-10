@@ -69,6 +69,16 @@ POST|03/07/2025 16:03:36.689|[HTTP:541455_33326:crushadmin:147.45.112.220] WROTE
 The hacker prompts the list of registered users:
   
 ```
+POST|03/07/2025 16:03:36|[HTTP:541455_33326_fhu:crushadmin:147.45.112.220] READ: *POST /WebInterface/function/ HTTP/1.1*
+POST|03/07/2025 16:03:36|[HTTP:541455_33326_fhu:crushadmin:147.45.112.220] READ: *command:getUser*
+POST|03/07/2025 16:03:36|[HTTP:541455_33326_fhu:crushadmin:147.45.112.220] READ: *serverGroup:MainUsers*
+POST|03/07/2025 16:03:36|[HTTP:541455_33326_fhu:crushadmin:147.45.112.220] READ: *username:crushadmin*
+POST|03/07/2025 16:03:36|[HTTP:541455_33326_fhu:crushadmin:147.45.112.220] READ: *c2f:zIpc*
+POST|03/07/2025 16:03:36|[crushadmin:147.45.112.220] WROTE: *HTTP/1.1 200 OK*
+ACCEPT|03/07/2025 16:03:36|[HTTP:541455_33328:lookup:9090] Accepting connection from: 147.45.112.220:33328
+```
+  
+```
 POST|03/07/2025 16:03:36.720|[HTTP:541455_33326_fhu:crushadmin:147.45.112.220] READ: *POST /WebInterface/function/ HTTP/1.1*
 POST|03/07/2025 16:03:36.721|[HTTP:541455_33326_fhu:crushadmin:147.45.112.220] READ: *command:getUser*
 POST|03/07/2025 16:03:36.723|[HTTP:541455_33326_fhu:crushadmin:147.45.112.220] READ: *serverGroup:MainUsers*
