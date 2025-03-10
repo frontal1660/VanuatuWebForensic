@@ -42,10 +42,11 @@ Verdict
 
 ##  :alien: <a name="link-actions">Identify major actions made by 147.45.112.220 under HTTP interface</a>
   
-> [!NOTE]
+> [!CAUTION]
 > These following actions are done in 1.629s!  
 > This certainly means that a script/metasploit is behind this behaviour.
-
+<br/>
+  
 1. Action #1
   
 The hacker successfully authenticates with crushadmin user, with the correct password:  
