@@ -277,7 +277,7 @@ ACCEPT|03/07/2025 16:05:44.265|[HTTP:541458_60804:lookup:9090] Accepting connect
   
 4. Action #4
   
-The hacker uploads the file _crushtmplog/1340597d-f19d-4d5d-8616-3c6293d21895.txt_ in FTP_ROOT:
+The hacker uploads the file _crushtmplog/1340597d-f19d-4d5d-8616-3c6293d21895.txt_:
   
 ```
 POST|03/07/2025 16:05:44.267|[HTTP:541458_60784_3N4:crushadmin:91.191.209.10] READ: *POST /WebInterface/function/ HTTP/1.1*
