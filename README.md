@@ -684,9 +684,9 @@ Verdict
   
   <br/>
 
-##  :alien: <a name="link-banned">Get banned IP</a>
+##  :alien: <a name="link-actions3">List all actions/a>
 
-Here comes the lsite of all actions made by 147.45.112.220:  
+Here comes the list of all actions made by 147.45.112.220:  
 
 | IP             | Time     | Action                                                  |
 | ---------------|----------|---------------------------------------------------------|
@@ -729,7 +729,7 @@ Here comes the list of all actions made by 91.191.209.10:
   
 Verdict
 
-- [X] Identify major actions made by 91.191.209.10 under HTTP interface :sunglasses:
+- [X] List all actions :sunglasses:
   
   <br/>
 
