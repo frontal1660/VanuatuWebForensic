@@ -295,7 +295,7 @@ POST|03/07/2025 16:05:44.591|[HTTP:541458_60804:crushadmin:91.191.209.10] WROTE:
   
 5. Action #5
   
-The hacker probably tries to acces to his plugin via the POST query _U/2d23cdac~1~1005600_:  
+The hacker probably tries to comminicate with his plugin via the POST query _U/2d23cdac~1~1005600_:  
   
 ```
 POST|03/07/2025 16:05:44.670|[HTTP:541458_60784_QG6:crushadmin:91.191.209.10] READ: *POST /U/2d23cdac~1~1005600 HTTP/1.1*
@@ -306,11 +306,7 @@ POST|03/07/2025 16:05:45.005|[HTTP:541458_60804:crushadmin:91.191.209.10] WROTE:
   
 6. Action #6
   
-The hacker checks/modifies a setting of a plugin (_server_settings/plugins/5/1_).  
-  
-It is pretty obvious that :  
-1. the file _crushtmplog/1871264c-ce01-4270-aef1-6a2f38515ad7.txt_ is actually a malicious CrushFTP plugin:
-2. the hacker has renamed the plugin with a specific name
+The hacker can see on the screen that the file _/crushtmplog/1340597d-f19d-4d5d-8616-3c6293d21895.txt_ has been uploaded with success:
   
 ```
 POST|03/07/2025 16:05:45.125|[HTTP:541458_60784_fdt:crushadmin:91.191.209.10] READ: *POST /WebInterface/function/ HTTP/1.1*
@@ -331,11 +327,11 @@ POST|03/07/2025 16:05:45.190|[HTTP:541458_60804:crushadmin:91.191.209.10] WROTE:
   
 7. Action #7
   
-The hackers calls its plugin now known by the name _CrushSQL_.  
-  
-The name of the plugin might be a decoy to "hide" this malicious plugin.
-  
-The plugin is actually a JAR archive.
+The hacker checks/modifies a setting of a plugin (server_settings/plugins/5/1).
+
+It is pretty obvious that :
+1. the file _/crushtmplog/1340597d-f19d-4d5d-8616-3c6293d21895.txt_ is actually a malicious CrushFTP plugin:
+2. the hacker has renamed the plugin with a specific name
   
 ```
 POST|03/07/2025 16:05:45.309|[HTTP:541458_60784_dXY:crushadmin:91.191.209.10] READ: *POST /WebInterface/function/ HTTP/1.1*
@@ -359,7 +355,9 @@ The hackers calls its plugin now known by the name _CrushSQL_.
   
 The name of the plugin might be a decoy to "hide" this malicious plugin.
   
-The plugin is actually a JAR archive.
+The plugin is actually a JAR archive.  
+  
+The hacker seems to have a problem (Crowdstrike blocking?):
   
 ```
 POST|03/07/2025 16:05:45.647|[HTTP:541458_60784_phx:crushadmin:91.191.209.10] READ: *POST /WebInterface/function/ HTTP/1.1*
