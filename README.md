@@ -10,6 +10,7 @@ Action list :
 - [ ] [Get the datetime crushadmin password was changed](#link-adm-changed)
 - [ ] [Identify major actions made by 147.45.112.220 under HTTP interface](#link-actions1)
 - [ ] [Identify major actions made by 91.191.209.10 under HTTP interface](#link-actions2)
+- [ ] [List all actions](#link-actions3)
 - [ ] [Get banned IP](#link-banned)
 - [ ] [Get intel from Maxmind](#link-geoip)
 - [ ] [Get unsuccessfull HTTP login attemps](#link-fail-http)
@@ -679,9 +680,19 @@ POST|03/07/2025 16:37:37.976|[HTTP:541465_59666:crushadmin:91.191.209.10] WROTE:
   
 Verdict
 
-- [X] Identify major actions made by 147.45.112.220  under HTTP interface :sunglasses:
+- [X] Identify major actions made by 91.191.209.10  under HTTP interface :sunglasses:
   
   <br/>
+
+##  :alien: <a name="link-banned">Get banned IP</a>
+
+Here comes the lsite of all actions made by :  
+
+
+
+Here comes the list of all actions made by 91.191.209.10:  
+
+
 
 ##  :alien: <a name="link-banned">Get banned IP</a>
   
