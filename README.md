@@ -472,7 +472,7 @@ POST|03/07/2025 16:07:03.243|[HTTP:541461_57106:crushadmin:91.191.209.10] WROTE:
   
 14. Action #14
   
-The hacker probably tries to comminicate with his plugin via the POST query _/U/9262ffb4~1~1005600_:
+The hacker probably tries to communicate with his plugin via the POST query _/U/9262ffb4~1~1005600_:
   
 ```
 POST|03/07/2025 16:07:03.322|[HTTP:541461_57084_YeY:crushadmin:91.191.209.10] READ: *POST /U/9262ffb4~1~1005600 HTTP/1.1*
@@ -602,7 +602,7 @@ POST|03/07/2025 16:37:36.740|[HTTP:541465_59666:crushadmin:91.191.209.10] WROTE:
   
 21. Action #21
   
-The hacker probably tries to comminicate with his plugin via the POST query /U/9262ffb411005600:
+The hacker probably tries to communicate with his plugin via the POST query /U/9262ffb411005600:
   
 ```
 POST|03/07/2025 16:37:36.818|[HTTP:541465_59652_sG8:crushadmin:91.191.209.10] READ: *POST /U/2486994b~1~1005437 HTTP/1.1*
@@ -680,18 +680,58 @@ POST|03/07/2025 16:37:37.976|[HTTP:541465_59666:crushadmin:91.191.209.10] WROTE:
   
 Verdict
 
-- [X] Identify major actions made by 91.191.209.10  under HTTP interface :sunglasses:
+- [X] Identify major actions made by 91.191.209.10 under HTTP interface :sunglasses:
   
   <br/>
 
 ##  :alien: <a name="link-banned">Get banned IP</a>
 
-Here comes the lsite of all actions made by :  
+Here comes the lsite of all actions made by 147.45.112.220:  
 
+| IP             | Time     | Action                                                  |
+| ---------------|----------|---------------------------------------------------------|
+| 147.45.112.220 | 16:03:36 | Authenticates successfull with _crushadmin_ user        |
+| 147.45.112.220 | 16:03:36 | Prompts the list of registered users                    |
+| 147.45.112.220 | 16:03:36 | Changes _crushadmin_ password                           |
+| 147.45.112.220 | 16:03:36 | Uploads a malicious plugin                              |
+| 147.45.112.220 | 16:03:37 | Renames the malicious plugin CrushSQL                   |
+| 147.45.112.220 | 16:03:37 | Calls the plugin with an error                          |
 
+<br/>
 
 Here comes the list of all actions made by 91.191.209.10:  
+  
+| IP             | Time     | Action                                                  |
+| ---------------|----------|---------------------------------------------------------|
+| 91.191.209.10  | 16:05.43 | Authenticates successfull with _crushadmin_ user        |
+| 91.191.209.10  | 16:05.43 | Edits user _crushadmin_                                 |
+| 91.191.209.10  | 16:05.43 | Changes _crushadmin_ password                           |
+| 91.191.209.10  | 16:05.43 | Uploads a malicious plugin                              |
+| 91.191.209.10  | 16:05.43 | Tries to communicate with his plugin via the POST query |
+| 91.191.209.10  | 16:05.43 | Renames the malicious plugin CrushSQL                   |
+| 91.191.209.10  | 16:05.43 | Calls the plugin with an error                          |
+| 91.191.209.10  | 16:05.43 | Authenticates successfull with _crushadmin_ user        |
+| 91.191.209.10  | 16:05.43 | Authenticates successfull with _crushadmin_ user        |
+| 91.191.209.10  | 16:05.43 | Edits user _crushadmin_                                 |
+| 91.191.209.10  | 16:05.43 | Changes _crushadmin_ password                           |
+| 91.191.209.10  | 16:05.43 | Uploads a malicious plugin                              |
+| 91.191.209.10  | 16:05.43 | Tries to communicate with his plugin via the POST query |
+| 91.191.209.10  | 16:05.43 | Renames the malicious plugin CrushSQL                   |
+| 91.191.209.10  | 16:05.43 | Authenticates successfull with _crushadmin_ user        |
+| 91.191.209.10  | 16:05.43 | Edits user _crushadmin_                                 |
+| 91.191.209.10  | 16:05.43 | Changes _crushadmin_ password                           |
+| 91.191.209.10  | 16:05.43 | Uploads a malicious plugin                              |
+| 91.191.209.10  | 16:05.43 | Tries to communicate with his plugin via the POST query |
+| 91.191.209.10  | 16:05.43 | Renames the malicious plugin CrushSQL                   |
+| 91.191.209.10  | 16:05.43 | Calls the plugin with an error                          |
 
+<br/>
+  
+Verdict
+
+- [X] Identify major actions made by 91.191.209.10 under HTTP interface :sunglasses:
+  
+  <br/>
 
 
 ##  :alien: <a name="link-banned">Get banned IP</a>
