@@ -99,7 +99,7 @@ ACCEPT|03/07/2025 16:03:36.770|[lookup:9090] Accepting connection from: 147.45.1
   
 3. Action #3
   
-The hacker replaces a user item (not sure to understand which one):
+The hacker changes the _crushadmin_ password:
   
 ```
 POST|03/07/2025 16:03:36.772|[crushadmin:147.45.112.220] READ: *POST /WebInterface/function/ HTTP/1.1*
@@ -241,7 +241,7 @@ POST|03/07/2025 16:05:43.307|[HTTP:541458_60784:crushadmin:91.191.209.10] WROTE:
   
 2. Action #2
   
-The hacker prompts the list of registered users:
+The hacker edits user _crushadmin_ :
     
 ```
 POST|03/07/2025 16:05:43.383|[HTTP:541458_60784_wsV:crushadmin:91.191.209.10] READ: *POST /WebInterface/function/ HTTP/1.1*
@@ -256,7 +256,7 @@ ACCEPT|03/07/2025 16:05:43.477|[HTTP:541458_60788:lookup:9090] Accepting connect
   
 3. Action #3
   
-The hacker replaces a user item (not sure to understand which one):
+The hacker changes the _crushadmin_ password:
   
 ```
 POST|03/07/2025 16:05:43.479|[HTTP:541458_60784_5bt:crushadmin:91.191.209.10] READ: *POST /WebInterface/function/ HTTP/1.1*
@@ -375,11 +375,8 @@ ACCEPT|03/07/2025 16:07:01.962|[HTTP:541461_57084:lookup:9090] Accepting connect
   
 9. Action #9
   
-The hackers calls its plugin now known by the name _CrushSQL_.  
-  
-The name of the plugin might be a decoy to "hide" this malicious plugin.
-  
-The plugin is actually a JAR archive.
+Again, the hacker successfully authenticates with crushadmin user, with the correct password:
+He now has an admin cookie set.
   
 ```
 POST|03/07/2025 16:07:01.965|[HTTP:541461_57084_Ray::91.191.209.10] READ: *POST /WebInterface/function/ HTTP/1.1*
@@ -399,11 +396,8 @@ POST|03/07/2025 16:07:01.996|[HTTP:541461_57084:crushadmin:91.191.209.10] WROTE:
   
 10. Action #10
   
-The hackers calls its plugin now known by the name _CrushSQL_.  
-  
-The name of the plugin might be a decoy to "hide" this malicious plugin.
-  
-The plugin is actually a JAR archive.
+Once again, the hacker successfully authenticates with crushadmin user, with the correct password:
+He now has an admin cookie set.
   
 ```
 POST|03/07/2025 16:07:01.965|[HTTP:541461_57084_Ray::91.191.209.10] READ: *POST /WebInterface/function/ HTTP/1.1*
@@ -423,11 +417,7 @@ POST|03/07/2025 16:07:01.996|[HTTP:541461_57084:crushadmin:91.191.209.10] WROTE:
   
 11. Action #11
   
-The hackers calls its plugin now known by the name _CrushSQL_.  
-  
-The name of the plugin might be a decoy to "hide" this malicious plugin.
-  
-The plugin is actually a JAR archive.
+The hacker edits user _crushadmin_ :
   
 ```
 POST|03/07/2025 16:07:02.071|[HTTP:541461_57084_L4J:crushadmin:91.191.209.10] READ: *POST /WebInterface/function/ HTTP/1.1*
@@ -442,11 +432,7 @@ ACCEPT|03/07/2025 16:07:02.165|[HTTP:541461_57094:lookup:9090] Accepting connect
   
 12. Action #12
   
-The hackers calls its plugin now known by the name _CrushSQL_.  
-  
-The name of the plugin might be a decoy to "hide" this malicious plugin.
-  
-The plugin is actually a JAR archive.
+The hacker changes the _crushadmin_ password:
   
 ```
 POST|03/07/2025 16:07:02.168|[HTTP:541461_57084_jNJ:crushadmin:91.191.209.10] READ: *POST /WebInterface/function/ HTTP/1.1*
@@ -466,11 +452,7 @@ ACCEPT|03/07/2025 16:07:02.918|[HTTP:541461_57106:lookup:9090] Accepting connect
   
 13. Action #13
   
-The hackers calls its plugin now known by the name _CrushSQL_.  
-  
-The name of the plugin might be a decoy to "hide" this malicious plugin.
-  
-The plugin is actually a JAR archive.
+The hacker uploads the file _/crushtmplog/9ffe1bc9-2735-4681-b775-3e59483c5dfe.txt_:
   
 ```
 POST|03/07/2025 16:07:02.921|[HTTP:541461_57084_CxA:crushadmin:91.191.209.10] READ: *POST /WebInterface/function/ HTTP/1.1*
@@ -489,11 +471,7 @@ POST|03/07/2025 16:07:03.243|[HTTP:541461_57106:crushadmin:91.191.209.10] WROTE:
   
 14. Action #14
   
-The hackers calls its plugin now known by the name _CrushSQL_.  
-  
-The name of the plugin might be a decoy to "hide" this malicious plugin.
-  
-The plugin is actually a JAR archive.
+The hacker probably tries to comminicate with his plugin via the POST query _/U/9262ffb4~1~1005600_:
   
 ```
 POST|03/07/2025 16:07:03.322|[HTTP:541461_57084_YeY:crushadmin:91.191.209.10] READ: *POST /U/9262ffb4~1~1005600 HTTP/1.1*
@@ -504,11 +482,7 @@ POST|03/07/2025 16:07:03.553|[HTTP:541461_57106:crushadmin:91.191.209.10] WROTE:
   
 15. Action #15
   
-The hackers calls its plugin now known by the name _CrushSQL_.  
-  
-The name of the plugin might be a decoy to "hide" this malicious plugin.
-  
-The plugin is actually a JAR archive.
+The hacker can see on the screen that the file _/crushtmplog/9ffe1bc9-2735-4681-b775-3e59483c5dfe.txt_ has been uploaded with success:
   
 ```
 POST|03/07/2025 16:07:03.673|[HTTP:541461_57084_wik:crushadmin:91.191.209.10] READ: *POST /WebInterface/function/ HTTP/1.1*
@@ -529,11 +503,11 @@ POST|03/07/2025 16:07:03.744|[HTTP:541461_57106:crushadmin:91.191.209.10] WROTE:
   
 16. Action #16
   
-The hackers calls its plugin now known by the name _CrushSQL_.  
-  
-The name of the plugin might be a decoy to "hide" this malicious plugin.
-  
-The plugin is actually a JAR archive.
+The hacker checks/modifies a setting of a plugin (server_settings/plugins/5/1).
+
+It is pretty obvious that :
+1. the file _/crushtmplog/9ffe1bc9-2735-4681-b775-3e59483c5dfe.txt_ is actually a malicious CrushFTP plugin:
+2. the hacker has renamed the plugin with a specific name
   
 ```
 POST|03/07/2025 16:07:03.861|[HTTP:541461_57084_YIH:crushadmin:91.191.209.10] READ: *POST /WebInterface/function/ HTTP/1.1*
