@@ -684,7 +684,7 @@ Verdict
   
   <br/>
 
-##  :alien: <a name="link-actions3">List all actions/a>
+##  :alien: <a name="link-actions3">List all actions</a>
 
 Here comes the list of all actions made by 147.45.112.220:  
 
