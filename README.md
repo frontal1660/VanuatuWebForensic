@@ -276,7 +276,7 @@ ACCEPT|03/07/2025 16:05:44.265|[HTTP:541458_60804:lookup:9090] Accepting connect
   
 4. Action #4
   
-The hacker uploads the file _crushtmplog/1871264c-ce01-4270-aef1-6a2f38515ad7.txt_ in FTP_ROOT:
+The hacker uploads the file _crushtmplog/1340597d-f19d-4d5d-8616-3c6293d21895.txt_ in FTP_ROOT:
   
 ```
 POST|03/07/2025 16:05:44.267|[HTTP:541458_60784_3N4:crushadmin:91.191.209.10] READ: *POST /WebInterface/function/ HTTP/1.1*
@@ -295,7 +295,7 @@ POST|03/07/2025 16:05:44.591|[HTTP:541458_60804:crushadmin:91.191.209.10] WROTE:
   
 5. Action #5
   
-The hacker can see on the screen that the file _crushtmplog/1871264c-ce01-4270-aef1-6a2f38515ad7.txt_ has been uploaded with success:
+The hacker probably tries to acces to his plugin via the POST query _U/2d23cdac~1~1005600_:  
   
 ```
 POST|03/07/2025 16:05:44.670|[HTTP:541458_60784_QG6:crushadmin:91.191.209.10] READ: *POST /U/2d23cdac~1~1005600 HTTP/1.1*
