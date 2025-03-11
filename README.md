@@ -8,7 +8,8 @@
 Action list :  
 - [ ] [Preamble](#link-preamble)
 - [ ] [Get the datetime crushadmin password was changed](#link-adm-changed)
-- [ ] [Identify major actions made by 147.45.112.220 under HTTP interface](#link-actions)
+- [ ] [Identify major actions made by 147.45.112.220 under HTTP interface](#link-actions1)
+- [ ] [Identify major actions made by 91.191.209.10 under HTTP interface](#link-actions2)
 - [ ] [Get banned IP](#link-banned)
 - [ ] [Get intel from Maxmind](#link-geoip)
 - [ ] [Get unsuccessfull HTTP login attemps](#link-fail-http)
@@ -53,7 +54,7 @@ Verdict
   
   <br/>
 
-##  :alien: <a name="link-actions">Identify major actions made by 147.45.112.220 under HTTP interface</a>
+##  :alien: <a name="link-actions1">Identify major actions made by 147.45.112.220 under HTTP interface</a>
   
 > [!CAUTION]
 > These following actions are done in 1.629s!  
@@ -201,6 +202,529 @@ POST|03/07/2025 16:03:38.254|[crushadmin:147.45.112.220] READ: *pluginSubItem:*
 POST|03/07/2025 16:03:38.256|[crushadmin:147.45.112.220] READ: *c2f:zIpc*
 POST|03/07/2025 16:03:38.267|[crushadmin:147.45.112.220] WROTE: *HTTP/1.1 200 OK*
 POST|03/07/2025 16:03:38.270|[crushadmin:147.45.112.220] WROTE: *<commandResult><response>java.lang.UnsupportedClassVersionError: com/mysql/jdbc/Driver has been compiled by a more recent version of the Java Runtime (class file version 67.0), this version of the Java Runtime only recognizes class file versions up to 61.0</response></commandResult>*
+```
+<br/>
+  
+Verdict
+
+- [X] Identify major actions made by 147.45.112.220  under HTTP interface :sunglasses:
+  
+  <br/>
+
+##  :alien: <a name="link-actions2">Identify major actions made by 91.191.209.10 under HTTP interface</a>
+  
+> [!CAUTION]
+> Behind this new IP there is the same hacker! 
+<br/>
+  
+1. Action #1
+  
+The hacker successfully authenticates with crushadmin user, with the correct password:  
+He now has an admin cookie set.
+  
+```
+ACCEPT|03/07/2025 16:05:43.273|[HTTP:541458_60784:lookup:9090] Accepting connection from: 91.191.209.10:60784
+POST|03/07/2025 16:05:43.277|[HTTP:541458_60784_OjC::91.191.209.10] READ: *POST /WebInterface/function/ HTTP/1.1*
+POST|03/07/2025 16:05:43.278|[HTTP:541458_60784_OjC::91.191.209.10] READ: *user_ip: 127.0.0.1*
+POST|03/07/2025 16:05:43.279|[HTTP:541458_60784_OjC::91.191.209.10] READ: *command:login*
+POST|03/07/2025 16:05:43.281|[HTTP:541458_60784_OjC::91.191.209.10] READ: *username:crushadmin*
+POST|03/07/2025 16:05:43.282|[HTTP:541458_60784_OjC::91.191.209.10] READ: *password:************
+POST|03/07/2025 16:05:43.284|[HTTP:541458_60784_OjC::91.191.209.10] READ: *encoded:true*
+POST|03/07/2025 16:05:43.285|[HTTP:541458_60784_OjC::91.191.209.10] READ: *language:en*
+POST|03/07/2025 16:05:43.286|[HTTP:541458_60784_OjC::91.191.209.10] READ: *random:0.5784904717377481*
+STOR|03/07/2025 16:05:43.303|[HTTP:541458_60784:crushadmin:91.191.209.10] WROTE: *230 Password OK.  Connected.*
+SERVER|03/07/2025 16:05:43.306|SERVER_LOGIN:SUCCESS:541458:MainUsers:crushadmin:HTTP:91.191.209.10:
+POST|03/07/2025 16:05:43.306|[HTTP:541458_60784:crushadmin:91.191.209.10] WROTE: *HTTP/1.1 200 OK*
+POST|03/07/2025 16:05:43.307|[HTTP:541458_60784:crushadmin:91.191.209.10] WROTE: *Set-Cookie: currentAuth=QhPs; path=
+```
+<br/>
+  
+2. Action #2
+  
+The hacker prompts the list of registered users:
+    
+```
+POST|03/07/2025 16:05:43.383|[HTTP:541458_60784_wsV:crushadmin:91.191.209.10] READ: *POST /WebInterface/function/ HTTP/1.1*
+POST|03/07/2025 16:05:43.384|[HTTP:541458_60784_wsV:crushadmin:91.191.209.10] READ: *command:getUser*
+POST|03/07/2025 16:05:43.385|[HTTP:541458_60784_wsV:crushadmin:91.191.209.10] READ: *serverGroup:MainUsers*
+POST|03/07/2025 16:05:43.387|[HTTP:541458_60784_wsV:crushadmin:91.191.209.10] READ: *username:crushadmin*
+POST|03/07/2025 16:05:43.388|[HTTP:541458_60784_wsV:crushadmin:91.191.209.10] READ: *c2f:QhPs*
+POST|03/07/2025 16:05:43.400|[HTTP:541458_60784:crushadmin:91.191.209.10] WROTE: *HTTP/1.1 200 OK*
+ACCEPT|03/07/2025 16:05:43.477|[HTTP:541458_60788:lookup:9090] Accepting connection from: 91.191.209.10:60788
+```
+<br/>
+  
+3. Action #3
+  
+The hacker replaces a user item (not sure to understand which one):
+  
+```
+POST|03/07/2025 16:05:43.479|[HTTP:541458_60784_5bt:crushadmin:91.191.209.10] READ: *POST /WebInterface/function/ HTTP/1.1*
+POST|03/07/2025 16:05:43.480|[HTTP:541458_60784_5bt:crushadmin:91.191.209.10] READ: *command:setUserItem*
+POST|03/07/2025 16:05:43.482|[HTTP:541458_60784_5bt:crushadmin:91.191.209.10] READ: *data_action:replace*
+POST|03/07/2025 16:05:43.483|[HTTP:541458_60784_5bt:crushadmin:91.191.209.10] READ: *serverGroup:MainUsers*
+POST|03/07/2025 16:05:43.485|[HTTP:541458_60784_5bt:crushadmin:91.191.209.10] READ: *username:crushadmin*
+POST|03/07/2025 16:05:43.486|[HTTP:541458_60784_5bt:crushadmin:91.191.209.10] READ: *user:<?xml+version="1.0"+encoding="utf-8"?>
+POST|03/07/2025 16:05:43.488|[HTTP:541458_60784_5bt:crushadmin:91.191.209.10] READ: *xmlItem:user*
+POST|03/07/2025 16:05:43.489|[HTTP:541458_60784_5bt:crushadmin:91.191.209.10] READ: *vfs_items:<?xml+version="1.0"+encoding="utf-8"?>
+POST|03/07/2025 16:05:43.491|[HTTP:541458_60784_5bt:crushadmin:91.191.209.10] READ: *permissions:<?xml+version="1.0"+encoding="utf-8"?>
+POST|03/07/2025 16:05:43.493|[HTTP:541458_60784_5bt:crushadmin:91.191.209.10] READ: *c2f:QhPs*
+POST|03/07/2025 16:05:43.590|[HTTP:541458_60788:crushadmin:91.191.209.10] WROTE: *HTTP/1.1 200 OK*
+ACCEPT|03/07/2025 16:05:44.265|[HTTP:541458_60804:lookup:9090] Accepting connection from: 91.191.209.10:60804
+```
+<br/>
+  
+4. Action #4
+  
+The hacker uploads the file _crushtmplog/1871264c-ce01-4270-aef1-6a2f38515ad7.txt_ in FTP_ROOT:
+  
+```
+POST|03/07/2025 16:05:44.267|[HTTP:541458_60784_3N4:crushadmin:91.191.209.10] READ: *POST /WebInterface/function/ HTTP/1.1*
+POST|03/07/2025 16:05:44.269|[HTTP:541458_60784_3N4:crushadmin:91.191.209.10] READ: *user_ip: 127.0.0.1*
+POST|03/07/2025 16:05:44.270|[HTTP:541458_60784_3N4:crushadmin:91.191.209.10] READ: *command:openFile*
+POST|03/07/2025 16:05:44.272|[HTTP:541458_60784_3N4:crushadmin:91.191.209.10] READ: *c2f:QhPs*
+POST|03/07/2025 16:05:44.274|[HTTP:541458_60784_3N4:crushadmin:91.191.209.10] READ: *upload_path:/crushtmplog/1340597d-f19d-4d5d-8616-3c6293d21895.txt*
+POST|03/07/2025 16:05:44.275|[HTTP:541458_60784_3N4:crushadmin:91.191.209.10] READ: *upload_size:1005600*
+POST|03/07/2025 16:05:44.277|[HTTP:541458_60784_3N4:crushadmin:91.191.209.10] READ: *upload_id:2d23cdac*
+POST|03/07/2025 16:05:44.279|[HTTP:541458_60784_3N4:crushadmin:91.191.209.10] READ: *start_resume_loc:0*
+POST|03/07/2025 16:05:44.280|[HTTP:541458_60784_3N4:crushadmin:91.191.209.10] READ: *random:0.345679978990884*
+STOR|03/07/2025 16:05:44.291|[HTTP:541458_60784:crushadmin:91.191.209.10] WROTE: *150 Opening BINARY data connection.  Ready to write file /1340597d-f19d-4d5d-8616-3c6293d21895.txt. S T O R*
+POST|03/07/2025 16:05:44.591|[HTTP:541458_60804:crushadmin:91.191.209.10] WROTE: *HTTP/1.1 200 OK*
+```
+<br/>
+  
+5. Action #5
+  
+The hacker can see on the screen that the file _crushtmplog/1871264c-ce01-4270-aef1-6a2f38515ad7.txt_ has been uploaded with success:
+  
+```
+POST|03/07/2025 16:05:44.670|[HTTP:541458_60784_QG6:crushadmin:91.191.209.10] READ: *POST /U/2d23cdac~1~1005600 HTTP/1.1*
+POST|03/07/2025 16:05:44.672|[HTTP:541458_60784_QG6:crushadmin:91.191.209.10] READ: *user_ip: 127.0.0.1*
+POST|03/07/2025 16:05:45.005|[HTTP:541458_60804:crushadmin:91.191.209.10] WROTE: *HTTP/1.1 200 OK*
+```
+<br/>
+  
+6. Action #6
+  
+The hacker checks/modifies a setting of a plugin (_server_settings/plugins/5/1_).  
+  
+It is pretty obvious that :  
+1. the file _crushtmplog/1871264c-ce01-4270-aef1-6a2f38515ad7.txt_ is actually a malicious CrushFTP plugin:
+2. the hacker has renamed the plugin with a specific name
+  
+```
+POST|03/07/2025 16:05:45.125|[HTTP:541458_60784_fdt:crushadmin:91.191.209.10] READ: *POST /WebInterface/function/ HTTP/1.1*
+POST|03/07/2025 16:05:45.127|[HTTP:541458_60784_fdt:crushadmin:91.191.209.10] READ: *user_ip: 127.0.0.1*
+POST|03/07/2025 16:05:45.129|[HTTP:541458_60784_fdt:crushadmin:91.191.209.10] READ: *command:closeFile*
+POST|03/07/2025 16:05:45.131|[HTTP:541458_60784_fdt:crushadmin:91.191.209.10] READ: *c2f:QhPs*
+POST|03/07/2025 16:05:45.133|[HTTP:541458_60784_fdt:crushadmin:91.191.209.10] READ: *upload_id:2d23cdac*
+POST|03/07/2025 16:05:45.134|[HTTP:541458_60784_fdt:crushadmin:91.191.209.10] READ: *total_chunks:1*
+POST|03/07/2025 16:05:45.136|[HTTP:541458_60784_fdt:crushadmin:91.191.209.10] READ: *total_bytes:1005600*
+POST|03/07/2025 16:05:45.138|[HTTP:541458_60784_fdt:crushadmin:91.191.209.10] READ: *filePath:/crushtmplog/1340597d-f19d-4d5d-8616-3c6293d21895.txt*
+POST|03/07/2025 16:05:45.140|[HTTP:541458_60784_fdt:crushadmin:91.191.209.10] READ: *lastModified:1713988562086*
+POST|03/07/2025 16:05:45.141|[HTTP:541458_60784_fdt:crushadmin:91.191.209.10] READ: *random:0.10444100243921683*
+STOR|03/07/2025 16:05:45.180|[HTTP:541458_60784:crushadmin:91.191.209.10] WROTE: *226-Upload File Size:1005600 bytes @ 982K/sec. MD5=58185173bfb7aca32183ca25be614bbb*
+STOR|03/07/2025 16:05:45.183|[HTTP:541458_60784:crushadmin:91.191.209.10] WROTE: *226 Transfer complete.  MD5=58185173bfb7aca32183ca25be614bbb ("/1340597d-f19d-4d5d-8616-3c6293d21895.txt" 1005600) STOR*
+POST|03/07/2025 16:05:45.190|[HTTP:541458_60804:crushadmin:91.191.209.10] WROTE: *HTTP/1.1 200 OK*
+```
+<br/>
+  
+7. Action #7
+  
+The hackers calls its plugin now known by the name _CrushSQL_.  
+  
+The name of the plugin might be a decoy to "hide" this malicious plugin.
+  
+The plugin is actually a JAR archive.
+  
+```
+POST|03/07/2025 16:05:45.309|[HTTP:541458_60784_dXY:crushadmin:91.191.209.10] READ: *POST /WebInterface/function/ HTTP/1.1*
+POST|03/07/2025 16:05:45.311|[HTTP:541458_60784_dXY:crushadmin:91.191.209.10] READ: *user_ip: 127.0.0.1*
+POST|03/07/2025 16:05:45.313|[HTTP:541458_60784_dXY:crushadmin:91.191.209.10] READ: *command:getServerItem,c2f:QhPs,key:server_settings*
+POST|03/07/2025 16:05:45.474|[HTTP:541458_60784_iQK:crushadmin:91.191.209.10] READ: *POST /WebInterface/function/ HTTP/1.1*
+POST|03/07/2025 16:05:45.476|[HTTP:541458_60784_iQK:crushadmin:91.191.209.10] READ: *user_ip: 127.0.0.1*
+POST|03/07/2025 16:05:45.478|[HTTP:541458_60784_iQK:crushadmin:91.191.209.10] READ: *command:setServerItem*
+POST|03/07/2025 16:05:45.480|[HTTP:541458_60784_iQK:crushadmin:91.191.209.10] READ: *key:server_settings/plugins/5/1*
+POST|03/07/2025 16:05:45.482|[HTTP:541458_60784_iQK:crushadmin:91.191.209.10] READ: *data_type:vector*
+POST|03/07/2025 16:05:45.483|[HTTP:541458_60784_iQK:crushadmin:91.191.209.10] READ: *data_action:change*
+POST|03/07/2025 16:05:45.485|[HTTP:541458_60784_iQK:crushadmin:91.191.209.10] READ: *data:<plugins_subitem+type="properties">
+POST|03/07/2025 16:05:45.487|[HTTP:541458_60784_iQK:crushadmin:91.191.209.10] READ: *c2f:QhPs*
+POST|03/07/2025 16:05:45.528|[HTTP:541458_60804:crushadmin:91.191.209.10] WROTE: *HTTP/1.1 200 OK*
+```
+<br/>
+  
+8. Action #8
+  
+The hackers calls its plugin now known by the name _CrushSQL_.  
+  
+The name of the plugin might be a decoy to "hide" this malicious plugin.
+  
+The plugin is actually a JAR archive.
+  
+```
+POST|03/07/2025 16:05:45.647|[HTTP:541458_60784_phx:crushadmin:91.191.209.10] READ: *POST /WebInterface/function/ HTTP/1.1*
+POST|03/07/2025 16:05:45.651|[HTTP:541458_60784_phx:crushadmin:91.191.209.10] READ: *user_ip: 127.0.0.1*
+POST|03/07/2025 16:05:45.652|[HTTP:541458_60784_phx:crushadmin:91.191.209.10] READ: *command:pluginMethodCall*
+POST|03/07/2025 16:05:45.654|[HTTP:541458_60784_phx:crushadmin:91.191.209.10] READ: *method:testSettings*
+POST|03/07/2025 16:05:45.655|[HTTP:541458_60784_phx:crushadmin:91.191.209.10] READ: *pluginName:CrushSQL*
+POST|03/07/2025 16:05:45.658|[HTTP:541458_60784_phx:crushadmin:91.191.209.10] READ: *pluginSubItem:*
+POST|03/07/2025 16:05:45.659|[HTTP:541458_60784_phx:crushadmin:91.191.209.10] READ: *c2f:QhPs*
+POST|03/07/2025 16:05:45.773|[HTTP:541458_60804:crushadmin:91.191.209.10] WROTE: *HTTP/1.1 200 OK*
+POST|03/07/2025 16:05:45.788|[HTTP:541458_60804:crushadmin:91.191.209.10] WROTE: *<commandResult><response>java.lang.NullPointerException: Cannot invoke "java.sql.Connection.createStatement()" because "conn" is null</response></commandRe
+ACCEPT|03/07/2025 16:07:01.962|[HTTP:541461_57084:lookup:9090] Accepting connection from: 91.191.209.10:57084
+```
+<br/>
+  
+9. Action #9
+  
+The hackers calls its plugin now known by the name _CrushSQL_.  
+  
+The name of the plugin might be a decoy to "hide" this malicious plugin.
+  
+The plugin is actually a JAR archive.
+  
+```
+POST|03/07/2025 16:07:01.965|[HTTP:541461_57084_Ray::91.191.209.10] READ: *POST /WebInterface/function/ HTTP/1.1*
+POST|03/07/2025 16:07:01.966|[HTTP:541461_57084_Ray::91.191.209.10] READ: *user_ip: 127.0.0.1*
+POST|03/07/2025 16:07:01.968|[HTTP:541461_57084_Ray::91.191.209.10] READ: *command:login*
+POST|03/07/2025 16:07:01.969|[HTTP:541461_57084_Ray::91.191.209.10] READ: *username:crushadmin*
+POST|03/07/2025 16:07:01.971|[HTTP:541461_57084_Ray::91.191.209.10] READ: *password:************
+POST|03/07/2025 16:07:01.973|[HTTP:541461_57084_Ray::91.191.209.10] READ: *encoded:true*
+POST|03/07/2025 16:07:01.974|[HTTP:541461_57084_Ray::91.191.209.10] READ: *language:en*
+POST|03/07/2025 16:07:01.975|[HTTP:541461_57084_Ray::91.191.209.10] READ: *random:0.5784904717377481*
+STOR|03/07/2025 16:07:01.991|[HTTP:541461_57084:crushadmin:91.191.209.10] WROTE: *230 Password OK.  Connected.*
+SERVER|03/07/2025 16:07:01.994|SERVER_LOGIN:SUCCESS:541461:MainUsers:crushadmin:HTTP:91.191.209.10:
+POST|03/07/2025 16:07:01.994|[HTTP:541461_57084:crushadmin:91.191.209.10] WROTE: *HTTP/1.1 200 OK*
+POST|03/07/2025 16:07:01.996|[HTTP:541461_57084:crushadmin:91.191.209.10] WROTE: *Set-Cookie: currentAuth=4lfh; path=/
+```
+<br/>
+  
+10. Action #10
+  
+The hackers calls its plugin now known by the name _CrushSQL_.  
+  
+The name of the plugin might be a decoy to "hide" this malicious plugin.
+  
+The plugin is actually a JAR archive.
+  
+```
+POST|03/07/2025 16:07:01.965|[HTTP:541461_57084_Ray::91.191.209.10] READ: *POST /WebInterface/function/ HTTP/1.1*
+POST|03/07/2025 16:07:01.966|[HTTP:541461_57084_Ray::91.191.209.10] READ: *user_ip: 127.0.0.1*
+POST|03/07/2025 16:07:01.968|[HTTP:541461_57084_Ray::91.191.209.10] READ: *command:login*
+POST|03/07/2025 16:07:01.969|[HTTP:541461_57084_Ray::91.191.209.10] READ: *username:crushadmin*
+POST|03/07/2025 16:07:01.971|[HTTP:541461_57084_Ray::91.191.209.10] READ: *password:************
+POST|03/07/2025 16:07:01.973|[HTTP:541461_57084_Ray::91.191.209.10] READ: *encoded:true*
+POST|03/07/2025 16:07:01.974|[HTTP:541461_57084_Ray::91.191.209.10] READ: *language:en*
+POST|03/07/2025 16:07:01.975|[HTTP:541461_57084_Ray::91.191.209.10] READ: *random:0.5784904717377481*
+STOR|03/07/2025 16:07:01.991|[HTTP:541461_57084:crushadmin:91.191.209.10] WROTE: *230 Password OK.  Connected.*
+SERVER|03/07/2025 16:07:01.994|SERVER_LOGIN:SUCCESS:541461:MainUsers:crushadmin:HTTP:91.191.209.10:
+POST|03/07/2025 16:07:01.994|[HTTP:541461_57084:crushadmin:91.191.209.10] WROTE: *HTTP/1.1 200 OK*
+POST|03/07/2025 16:07:01.996|[HTTP:541461_57084:crushadmin:91.191.209.10] WROTE: *Set-Cookie: currentAuth=4lfh; path=/
+```
+<br/>
+  
+11. Action #11
+  
+The hackers calls its plugin now known by the name _CrushSQL_.  
+  
+The name of the plugin might be a decoy to "hide" this malicious plugin.
+  
+The plugin is actually a JAR archive.
+  
+```
+POST|03/07/2025 16:07:02.071|[HTTP:541461_57084_L4J:crushadmin:91.191.209.10] READ: *POST /WebInterface/function/ HTTP/1.1*
+POST|03/07/2025 16:07:02.073|[HTTP:541461_57084_L4J:crushadmin:91.191.209.10] READ: *command:getUser*
+POST|03/07/2025 16:07:02.074|[HTTP:541461_57084_L4J:crushadmin:91.191.209.10] READ: *serverGroup:MainUsers*
+POST|03/07/2025 16:07:02.075|[HTTP:541461_57084_L4J:crushadmin:91.191.209.10] READ: *username:crushadmin*
+POST|03/07/2025 16:07:02.077|[HTTP:541461_57084_L4J:crushadmin:91.191.209.10] READ: *c2f:4lfh*
+POST|03/07/2025 16:07:02.089|[HTTP:541461_57084:crushadmin:91.191.209.10] WROTE: *HTTP/1.1 200 OK*
+ACCEPT|03/07/2025 16:07:02.165|[HTTP:541461_57094:lookup:9090] Accepting connection from: 91.191.209.10:57094
+```
+<br/>
+  
+12. Action #12
+  
+The hackers calls its plugin now known by the name _CrushSQL_.  
+  
+The name of the plugin might be a decoy to "hide" this malicious plugin.
+  
+The plugin is actually a JAR archive.
+  
+```
+POST|03/07/2025 16:07:02.168|[HTTP:541461_57084_jNJ:crushadmin:91.191.209.10] READ: *POST /WebInterface/function/ HTTP/1.1*
+POST|03/07/2025 16:07:02.169|[HTTP:541461_57084_jNJ:crushadmin:91.191.209.10] READ: *command:setUserItem*
+POST|03/07/2025 16:07:02.171|[HTTP:541461_57084_jNJ:crushadmin:91.191.209.10] READ: *data_action:replace*
+POST|03/07/2025 16:07:02.172|[HTTP:541461_57084_jNJ:crushadmin:91.191.209.10] READ: *serverGroup:MainUsers*
+POST|03/07/2025 16:07:02.174|[HTTP:541461_57084_jNJ:crushadmin:91.191.209.10] READ: *username:crushadmin*
+POST|03/07/2025 16:07:02.175|[HTTP:541461_57084_jNJ:crushadmin:91.191.209.10] READ: *user:<?xml+version="1.0"+encoding="utf-8"?>
+POST|03/07/2025 16:07:02.177|[HTTP:541461_57084_jNJ:crushadmin:91.191.209.10] READ: *xmlItem:user*
+POST|03/07/2025 16:07:02.178|[HTTP:541461_57084_jNJ:crushadmin:91.191.209.10] READ: *vfs_items:<?xml+version="1.0"+encoding="utf-8"?>
+POST|03/07/2025 16:07:02.180|[HTTP:541461_57084_jNJ:crushadmin:91.191.209.10] READ: *permissions:<?xml+version="1.0"+encoding="utf-8"?>
+POST|03/07/2025 16:07:02.181|[HTTP:541461_57084_jNJ:crushadmin:91.191.209.10] READ: *c2f:4lfh*
+POST|03/07/2025 16:07:02.291|[HTTP:541461_57094:crushadmin:91.191.209.10] WROTE: *HTTP/1.1 200 OK*
+ACCEPT|03/07/2025 16:07:02.918|[HTTP:541461_57106:lookup:9090] Accepting connection from: 91.191.209.10:57106
+```
+<br/>
+  
+13. Action #13
+  
+The hackers calls its plugin now known by the name _CrushSQL_.  
+  
+The name of the plugin might be a decoy to "hide" this malicious plugin.
+  
+The plugin is actually a JAR archive.
+  
+```
+POST|03/07/2025 16:07:02.921|[HTTP:541461_57084_CxA:crushadmin:91.191.209.10] READ: *POST /WebInterface/function/ HTTP/1.1*
+POST|03/07/2025 16:07:02.922|[HTTP:541461_57084_CxA:crushadmin:91.191.209.10] READ: *user_ip: 127.0.0.1*
+POST|03/07/2025 16:07:02.924|[HTTP:541461_57084_CxA:crushadmin:91.191.209.10] READ: *command:openFile*
+POST|03/07/2025 16:07:02.926|[HTTP:541461_57084_CxA:crushadmin:91.191.209.10] READ: *c2f:4lfh*
+POST|03/07/2025 16:07:02.928|[HTTP:541461_57084_CxA:crushadmin:91.191.209.10] READ: *upload_path:/crushtmplog/9ffe1bc9-2735-4681-b775-3e59483c5dfe.txt*
+POST|03/07/2025 16:07:02.929|[HTTP:541461_57084_CxA:crushadmin:91.191.209.10] READ: *upload_size:1005600*
+POST|03/07/2025 16:07:02.931|[HTTP:541461_57084_CxA:crushadmin:91.191.209.10] READ: *upload_id:9262ffb4*
+POST|03/07/2025 16:07:02.933|[HTTP:541461_57084_CxA:crushadmin:91.191.209.10] READ: *start_resume_loc:0*
+POST|03/07/2025 16:07:02.934|[HTTP:541461_57084_CxA:crushadmin:91.191.209.10] READ: *random:0.345679978990884*
+STOR|03/07/2025 16:07:02.944|[HTTP:541461_57084:crushadmin:91.191.209.10] WROTE: *150 Opening BINARY data connection.  Ready to write file /9ffe1bc9-2735-4681-b775-3e59483c5dfe.txt. S T O R*
+POST|03/07/2025 16:07:03.243|[HTTP:541461_57106:crushadmin:91.191.209.10] WROTE: *HTTP/1.1 200 OK*
+```
+<br/>
+  
+14. Action #14
+  
+The hackers calls its plugin now known by the name _CrushSQL_.  
+  
+The name of the plugin might be a decoy to "hide" this malicious plugin.
+  
+The plugin is actually a JAR archive.
+  
+```
+POST|03/07/2025 16:07:03.322|[HTTP:541461_57084_YeY:crushadmin:91.191.209.10] READ: *POST /U/9262ffb4~1~1005600 HTTP/1.1*
+POST|03/07/2025 16:07:03.324|[HTTP:541461_57084_YeY:crushadmin:91.191.209.10] READ: *user_ip: 127.0.0.1*
+POST|03/07/2025 16:07:03.553|[HTTP:541461_57106:crushadmin:91.191.209.10] WROTE: *HTTP/1.1 200 OK*
+```
+<br/>
+  
+15. Action #15
+  
+The hackers calls its plugin now known by the name _CrushSQL_.  
+  
+The name of the plugin might be a decoy to "hide" this malicious plugin.
+  
+The plugin is actually a JAR archive.
+  
+```
+POST|03/07/2025 16:07:03.673|[HTTP:541461_57084_wik:crushadmin:91.191.209.10] READ: *POST /WebInterface/function/ HTTP/1.1*
+POST|03/07/2025 16:07:03.676|[HTTP:541461_57084_wik:crushadmin:91.191.209.10] READ: *user_ip: 127.0.0.1*
+POST|03/07/2025 16:07:03.678|[HTTP:541461_57084_wik:crushadmin:91.191.209.10] READ: *command:closeFile*
+POST|03/07/2025 16:07:03.679|[HTTP:541461_57084_wik:crushadmin:91.191.209.10] READ: *c2f:4lfh*
+POST|03/07/2025 16:07:03.681|[HTTP:541461_57084_wik:crushadmin:91.191.209.10] READ: *upload_id:9262ffb4*
+POST|03/07/2025 16:07:03.683|[HTTP:541461_57084_wik:crushadmin:91.191.209.10] READ: *total_chunks:1*
+POST|03/07/2025 16:07:03.685|[HTTP:541461_57084_wik:crushadmin:91.191.209.10] READ: *total_bytes:1005600*
+POST|03/07/2025 16:07:03.686|[HTTP:541461_57084_wik:crushadmin:91.191.209.10] READ: *filePath:/crushtmplog/9ffe1bc9-2735-4681-b775-3e59483c5dfe.txt*
+POST|03/07/2025 16:07:03.688|[HTTP:541461_57084_wik:crushadmin:91.191.209.10] READ: *lastModified:1713988562086*
+POST|03/07/2025 16:07:03.690|[HTTP:541461_57084_wik:crushadmin:91.191.209.10] READ: *random:0.10444100243921683*
+STOR|03/07/2025 16:07:03.727|[HTTP:541461_57084:crushadmin:91.191.209.10] WROTE: *226-Upload File Size:1005600 bytes @ 982K/sec. MD5=4e1f1c551ea6e66050dc4ac30e152c40*
+STOR|03/07/2025 16:07:03.729|[HTTP:541461_57084:crushadmin:91.191.209.10] WROTE: *226 Transfer complete.  MD5=4e1f1c551ea6e66050dc4ac30e152c40 ("/9ffe1bc9-2735-4681-b775-3e59483c5dfe.txt" 1005600) STOR*
+POST|03/07/2025 16:07:03.744|[HTTP:541461_57106:crushadmin:91.191.209.10] WROTE: *HTTP/1.1 200 OK*
+```
+<br/>
+  
+16. Action #16
+  
+The hackers calls its plugin now known by the name _CrushSQL_.  
+  
+The name of the plugin might be a decoy to "hide" this malicious plugin.
+  
+The plugin is actually a JAR archive.
+  
+```
+POST|03/07/2025 16:07:03.861|[HTTP:541461_57084_YIH:crushadmin:91.191.209.10] READ: *POST /WebInterface/function/ HTTP/1.1*
+POST|03/07/2025 16:07:03.863|[HTTP:541461_57084_YIH:crushadmin:91.191.209.10] READ: *user_ip: 127.0.0.1*
+POST|03/07/2025 16:07:03.865|[HTTP:541461_57084_YIH:crushadmin:91.191.209.10] READ: *command:getServerItem,c2f:4lfh,key:server_settings*
+POST|03/07/2025 16:07:04.023|[HTTP:541461_57084_flQ:crushadmin:91.191.209.10] READ: *POST /WebInterface/function/ HTTP/1.1*
+POST|03/07/2025 16:07:04.026|[HTTP:541461_57084_flQ:crushadmin:91.191.209.10] READ: *user_ip: 127.0.0.1*
+POST|03/07/2025 16:07:04.027|[HTTP:541461_57084_flQ:crushadmin:91.191.209.10] READ: *command:setServerItem*
+POST|03/07/2025 16:07:04.029|[HTTP:541461_57084_flQ:crushadmin:91.191.209.10] READ: *key:server_settings/plugins/5/1*
+POST|03/07/2025 16:07:04.031|[HTTP:541461_57084_flQ:crushadmin:91.191.209.10] READ: *data_type:vector*
+POST|03/07/2025 16:07:04.033|[HTTP:541461_57084_flQ:crushadmin:91.191.209.10] READ: *data_action:change*
+POST|03/07/2025 16:07:04.035|[HTTP:541461_57084_flQ:crushadmin:91.191.209.10] READ: *data:<plugins_subitem+type="properties">
+POST|03/07/2025 16:07:04.037|[HTTP:541461_57084_flQ:crushadmin:91.191.209.10] READ: *c2f:4lfh*
+POST|03/07/2025 16:07:04.079|[HTTP:541461_57106:crushadmin:91.191.209.10] WROTE: *HTTP/1.1 200 OK*
+```
+<br/>
+  
+17. Action #17
+  
+The hackers calls its plugin now known by the name _CrushSQL_.  
+  
+The name of the plugin might be a decoy to "hide" this malicious plugin.
+  
+The plugin is actually a JAR archive.
+  
+```
+POST|03/07/2025 16:37:35.435|[HTTP:541465_59652_1Oy::91.191.209.10] READ: *POST /WebInterface/function/ HTTP/1.1*
+POST|03/07/2025 16:37:35.436|[HTTP:541465_59652_1Oy::91.191.209.10] READ: *user_ip: 127.0.0.1*
+POST|03/07/2025 16:37:35.438|[HTTP:541465_59652_1Oy::91.191.209.10] READ: *command:login*
+POST|03/07/2025 16:37:35.439|[HTTP:541465_59652_1Oy::91.191.209.10] READ: *username:crushadmin*
+POST|03/07/2025 16:37:35.441|[HTTP:541465_59652_1Oy::91.191.209.10] READ: *password:************
+POST|03/07/2025 16:37:35.443|[HTTP:541465_59652_1Oy::91.191.209.10] READ: *encoded:true*
+POST|03/07/2025 16:37:35.444|[HTTP:541465_59652_1Oy::91.191.209.10] READ: *language:en*
+POST|03/07/2025 16:37:35.445|[HTTP:541465_59652_1Oy::91.191.209.10] READ: *random:0.5784904717377481*
+STOR|03/07/2025 16:37:35.460|[HTTP:541465_59652:crushadmin:91.191.209.10] WROTE: *230 Password OK.  Connected.*
+SERVER|03/07/2025 16:37:35.464|SERVER_LOGIN:SUCCESS:541465:MainUsers:crushadmin:HTTP:91.191.209.10:
+POST|03/07/2025 16:37:35.464|[HTTP:541465_59652:crushadmin:91.191.209.10] WROTE: *HTTP/1.1 200 OK*
+POST|03/07/2025 16:37:35.465|[HTTP:541465_59652:crushadmin:91.191.209.10] WROTE: *Set-Cookie: currentAuth=uvs6; path=/
+```
+<br/>
+  
+18. Action #18
+  
+The hackers calls its plugin now known by the name _CrushSQL_.  
+  
+The name of the plugin might be a decoy to "hide" this malicious plugin.
+  
+The plugin is actually a JAR archive.
+  
+```
+POST|03/07/2025 16:37:35.540|[HTTP:541465_59652_31R:crushadmin:91.191.209.10] READ: *POST /WebInterface/function/ HTTP/1.1*
+POST|03/07/2025 16:37:35.542|[HTTP:541465_59652_31R:crushadmin:91.191.209.10] READ: *command:getUser*
+POST|03/07/2025 16:37:35.544|[HTTP:541465_59652_31R:crushadmin:91.191.209.10] READ: *serverGroup:MainUsers*
+POST|03/07/2025 16:37:35.545|[HTTP:541465_59652_31R:crushadmin:91.191.209.10] READ: *username:crushadmin*
+POST|03/07/2025 16:37:35.546|[HTTP:541465_59652_31R:crushadmin:91.191.209.10] READ: *c2f:uvs6*
+POST|03/07/2025 16:37:35.558|[HTTP:541465_59652:crushadmin:91.191.209.10] WROTE: *HTTP/1.1 200 OK*
+ACCEPT|03/07/2025 16:37:35.636|[HTTP:541465_59660:lookup:9090] Accepting connection from: 91.191.209.10:59660
+```
+<br/>
+  
+19. Action #19
+  
+The hackers calls its plugin now known by the name _CrushSQL_.  
+  
+The name of the plugin might be a decoy to "hide" this malicious plugin.
+  
+The plugin is actually a JAR archive.
+  
+```
+POST|03/07/2025 16:37:35.638|[HTTP:541465_59652_GsR:crushadmin:91.191.209.10] READ: *POST /WebInterface/function/ HTTP/1.1*
+POST|03/07/2025 16:37:35.639|[HTTP:541465_59652_GsR:crushadmin:91.191.209.10] READ: *command:setUserItem*
+POST|03/07/2025 16:37:35.641|[HTTP:541465_59652_GsR:crushadmin:91.191.209.10] READ: *data_action:replace*
+POST|03/07/2025 16:37:35.642|[HTTP:541465_59652_GsR:crushadmin:91.191.209.10] READ: *serverGroup:MainUsers*
+POST|03/07/2025 16:37:35.643|[HTTP:541465_59652_GsR:crushadmin:91.191.209.10] READ: *username:crushadmin*
+POST|03/07/2025 16:37:35.645|[HTTP:541465_59652_GsR:crushadmin:91.191.209.10] READ: *user:<?xml+version="1.0"+encoding="utf-8"?>
+POST|03/07/2025 16:37:35.646|[HTTP:541465_59652_GsR:crushadmin:91.191.209.10] READ: *xmlItem:user*
+POST|03/07/2025 16:37:35.648|[HTTP:541465_59652_GsR:crushadmin:91.191.209.10] READ: *vfs_items:<?xml+version="1.0"+encoding="utf-8"?>
+POST|03/07/2025 16:37:35.650|[HTTP:541465_59652_GsR:crushadmin:91.191.209.10] READ: *permissions:<?xml+version="1.0"+encoding="utf-8"?>
+POST|03/07/2025 16:37:35.652|[HTTP:541465_59652_GsR:crushadmin:91.191.209.10] READ: *c2f:uvs6*
+POST|03/07/2025 16:37:35.767|[HTTP:541465_59660:crushadmin:91.191.209.10] WROTE: *HTTP/1.1 200 OK*
+ACCEPT|03/07/2025 16:37:36.416|[HTTP:541465_59666:lookup:9090] Accepting connection from: 91.191.209.10:59666
+```
+<br/>
+  
+20. Action #20
+  
+The hackers calls its plugin now known by the name _CrushSQL_.  
+  
+The name of the plugin might be a decoy to "hide" this malicious plugin.
+  
+The plugin is actually a JAR archive.
+  
+```
+POST|03/07/2025 16:37:36.418|[HTTP:541465_59652_hPY:crushadmin:91.191.209.10] READ: *POST /WebInterface/function/ HTTP/1.1*
+POST|03/07/2025 16:37:36.420|[HTTP:541465_59652_hPY:crushadmin:91.191.209.10] READ: *user_ip: 127.0.0.1*
+POST|03/07/2025 16:37:36.422|[HTTP:541465_59652_hPY:crushadmin:91.191.209.10] READ: *command:openFile*
+POST|03/07/2025 16:37:36.423|[HTTP:541465_59652_hPY:crushadmin:91.191.209.10] READ: *c2f:uvs6*
+POST|03/07/2025 16:37:36.425|[HTTP:541465_59652_hPY:crushadmin:91.191.209.10] READ: *upload_path:/crushtmplog/d0525c81-ab12-46d3-88b1-5ce0e3991bd3.txt*
+POST|03/07/2025 16:37:36.426|[HTTP:541465_59652_hPY:crushadmin:91.191.209.10] READ: *upload_size:1005437*
+POST|03/07/2025 16:37:36.428|[HTTP:541465_59652_hPY:crushadmin:91.191.209.10] READ: *upload_id:2486994b*
+POST|03/07/2025 16:37:36.429|[HTTP:541465_59652_hPY:crushadmin:91.191.209.10] READ: *start_resume_loc:0*
+POST|03/07/2025 16:37:36.431|[HTTP:541465_59652_hPY:crushadmin:91.191.209.10] READ: *random:0.345679978990884*
+STOR|03/07/2025 16:37:36.441|[HTTP:541465_59652:crushadmin:91.191.209.10] WROTE: *150 Opening BINARY data connection.  Ready to write file /d0525c81-ab12-46d3-88b1-5ce0e3991bd3.txt. S T O R*
+POST|03/07/2025 16:37:36.740|[HTTP:541465_59666:crushadmin:91.191.209.10] WROTE: *HTTP/1.1 200 OK*
+```
+<br/>
+  
+21. Action #21
+  
+The hackers calls its plugin now known by the name _CrushSQL_.  
+  
+The name of the plugin might be a decoy to "hide" this malicious plugin.
+  
+The plugin is actually a JAR archive.
+  
+```
+POST|03/07/2025 16:37:36.818|[HTTP:541465_59652_sG8:crushadmin:91.191.209.10] READ: *POST /U/2486994b~1~1005437 HTTP/1.1*
+POST|03/07/2025 16:37:36.821|[HTTP:541465_59652_sG8:crushadmin:91.191.209.10] READ: *user_ip: 127.0.0.1*
+POST|03/07/2025 16:37:37.082|[HTTP:541465_59666:crushadmin:91.191.209.10] WROTE: *HTTP/1.1 200 OK*
+```
+<br/>
+  
+22. Action #22
+  
+The hackers calls its plugin now known by the name _CrushSQL_.  
+  
+The name of the plugin might be a decoy to "hide" this malicious plugin.
+  
+The plugin is actually a JAR archive.
+  
+```
+POST|03/07/2025 16:37:37.200|[HTTP:541465_59652_kyr:crushadmin:91.191.209.10] READ: *POST /WebInterface/function/ HTTP/1.1*
+POST|03/07/2025 16:37:37.202|[HTTP:541465_59652_kyr:crushadmin:91.191.209.10] READ: *user_ip: 127.0.0.1*
+POST|03/07/2025 16:37:37.204|[HTTP:541465_59652_kyr:crushadmin:91.191.209.10] READ: *command:closeFile*
+POST|03/07/2025 16:37:37.205|[HTTP:541465_59652_kyr:crushadmin:91.191.209.10] READ: *c2f:uvs6*
+POST|03/07/2025 16:37:37.207|[HTTP:541465_59652_kyr:crushadmin:91.191.209.10] READ: *upload_id:2486994b*
+POST|03/07/2025 16:37:37.209|[HTTP:541465_59652_kyr:crushadmin:91.191.209.10] READ: *total_chunks:1*
+POST|03/07/2025 16:37:37.211|[HTTP:541465_59652_kyr:crushadmin:91.191.209.10] READ: *total_bytes:1005437*
+POST|03/07/2025 16:37:37.212|[HTTP:541465_59652_kyr:crushadmin:91.191.209.10] READ: *filePath:/crushtmplog/d0525c81-ab12-46d3-88b1-5ce0e3991bd3.txt*
+POST|03/07/2025 16:37:37.214|[HTTP:541465_59652_kyr:crushadmin:91.191.209.10] READ: *lastModified:1713988562086*
+POST|03/07/2025 16:37:37.216|[HTTP:541465_59652_kyr:crushadmin:91.191.209.10] READ: *random:0.10444100243921683*
+STOR|03/07/2025 16:37:37.255|[HTTP:541465_59652:crushadmin:91.191.209.10] WROTE: *226-Upload File Size:1005437 bytes @ 981K/sec. MD5=d69f4f7b365c1d90884035059eae50ec*
+STOR|03/07/2025 16:37:37.257|[HTTP:541465_59652:crushadmin:91.191.209.10] WROTE: *226 Transfer complete.  MD5=d69f4f7b365c1d90884035059eae50ec ("/d0525c81-ab12-46d3-88b1-5ce0e3991bd3.txt" 1005437) STOR*
+POST|03/07/2025 16:37:37.271|[HTTP:541465_59666:crushadmin:91.191.209.10] WROTE: *HTTP/1.1 200 OK*
+```
+<br/>
+  
+23. Action #23
+  
+The hackers calls its plugin now known by the name _CrushSQL_.  
+  
+The name of the plugin might be a decoy to "hide" this malicious plugin.
+  
+The plugin is actually a JAR archive.
+  
+```
+POST|03/07/2025 16:37:37.389|[HTTP:541465_59652_WS1:crushadmin:91.191.209.10] READ: *POST /WebInterface/function/ HTTP/1.1*
+POST|03/07/2025 16:37:37.390|[HTTP:541465_59652_WS1:crushadmin:91.191.209.10] READ: *user_ip: 127.0.0.1*
+POST|03/07/2025 16:37:37.392|[HTTP:541465_59652_WS1:crushadmin:91.191.209.10] READ: *command:getServerItem,c2f:uvs6,key:server_settings*
+POST|03/07/2025 16:37:37.550|[HTTP:541465_59652_sdJ:crushadmin:91.191.209.10] READ: *POST /WebInterface/function/ HTTP/1.1*
+POST|03/07/2025 16:37:37.552|[HTTP:541465_59652_sdJ:crushadmin:91.191.209.10] READ: *user_ip: 127.0.0.1*
+POST|03/07/2025 16:37:37.554|[HTTP:541465_59652_sdJ:crushadmin:91.191.209.10] READ: *command:setServerItem*
+POST|03/07/2025 16:37:37.555|[HTTP:541465_59652_sdJ:crushadmin:91.191.209.10] READ: *key:server_settings/plugins/5/1*
+POST|03/07/2025 16:37:37.557|[HTTP:541465_59652_sdJ:crushadmin:91.191.209.10] READ: *data_type:vector*
+POST|03/07/2025 16:37:37.559|[HTTP:541465_59652_sdJ:crushadmin:91.191.209.10] READ: *data_action:change*
+POST|03/07/2025 16:37:37.561|[HTTP:541465_59652_sdJ:crushadmin:91.191.209.10] READ: *data:<plugins_subitem+type="properties">
+POST|03/07/2025 16:37:37.563|[HTTP:541465_59652_sdJ:crushadmin:91.191.209.10] READ: *c2f:uvs6*
+POST|03/07/2025 16:37:37.786|[HTTP:541465_59666:crushadmin:91.191.209.10] WROTE: *HTTP/1.1 200 OK*
+```
+<br/>
+  
+24. Action #24
+  
+The hackers calls its plugin now known by the name _CrushSQL_.  
+  
+The name of the plugin might be a decoy to "hide" this malicious plugin.
+  
+The plugin is actually a JAR archive.
+  
+```
+POST|03/07/2025 16:37:37.904|[HTTP:541465_59652_tK8:crushadmin:91.191.209.10] READ: *POST /WebInterface/function/ HTTP/1.1*
+POST|03/07/2025 16:37:37.906|[HTTP:541465_59652_tK8:crushadmin:91.191.209.10] READ: *user_ip: 127.0.0.1*
+POST|03/07/2025 16:37:37.908|[HTTP:541465_59652_tK8:crushadmin:91.191.209.10] READ: *command:pluginMethodCall*
+POST|03/07/2025 16:37:37.910|[HTTP:541465_59652_tK8:crushadmin:91.191.209.10] READ: *method:testSettings*
+POST|03/07/2025 16:37:37.912|[HTTP:541465_59652_tK8:crushadmin:91.191.209.10] READ: *pluginName:CrushSQL*
+POST|03/07/2025 16:37:37.914|[HTTP:541465_59652_tK8:crushadmin:91.191.209.10] READ: *pluginSubItem:*
+POST|03/07/2025 16:37:37.916|[HTTP:541465_59652_tK8:crushadmin:91.191.209.10] READ: *c2f:uvs6*
+POST|03/07/2025 16:37:37.947|[HTTP:541465_59666:crushadmin:91.191.209.10] WROTE: *HTTP/1.1 200 OK*
+POST|03/07/2025 16:37:37.976|[HTTP:541465_59666:crushadmin:91.191.209.10] WROTE: *<commandResult><response>java.lang.NullPointerException: Cannot invoke "java.sql.Connection.createStatement()" because "conn" is null</response></commandRe
 ```
 <br/>
   
